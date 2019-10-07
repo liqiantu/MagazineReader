@@ -6,5 +6,15 @@ target 'MagazineReader' do
   use_frameworks!
 
   # Pods for MagazineReader
+  
+  pod 'Moya'
+  pod 'HandyJSON'
+  pod 'Kingfisher'
+  pod 'LLCycleScrollView'
+  pod 'MJRefresh'
+  pod 'MBProgressHUD'
+  pod 'HMSegmentedControl'
+  pod 'IQKeyboardManagerSwift'
+  pod 'EmptyDataSet-Swift'
 
 end
