@@ -13,7 +13,6 @@ target 'MagazineReader' do
   pod 'LLCycleScrollView'
   pod 'MJRefresh'
   pod 'MBProgressHUD'
-  pod 'HMSegmentedControl'
   pod 'IQKeyboardManagerSwift'
   pod 'EmptyDataSet-Swift'
 
