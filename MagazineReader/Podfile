@@ -8,10 +8,13 @@ target 'MagazineReader' do
   # Pods for MagazineReader
   
   pod 'Moya'
+  pod 'SnapKit'
   pod 'HandyJSON'
   pod 'Kingfisher'
   pod 'LLCycleScrollView'
   pod 'MJRefresh'
+  pod 'Reusable'
+  pod 'Then'
   pod 'MBProgressHUD'
   pod 'IQKeyboardManagerSwift'
   pod 'EmptyDataSet-Swift'
