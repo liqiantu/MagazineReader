@@ -8,3 +8,10 @@
 
 import Foundation
 import HandyJSON
+
+// 杂志分类
+struct category: HandyJSON {
+    var CategoryCode: String?
+    var CategoryName: String?
+    var ResourceTotal: Int = 0
+}

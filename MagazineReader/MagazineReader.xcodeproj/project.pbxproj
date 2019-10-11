@@ -31,10 +31,9 @@
 		30C161C3234DABE600BC17F5 /* UTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BA234DABE600BC17F5 /* UTabBarController.swift */; };
 		30C161C4234DABE600BC17F5 /* UNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BB234DABE600BC17F5 /* UNavigationController.swift */; };
 		30C161C5234DABE600BC17F5 /* UWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BC234DABE600BC17F5 /* UWebViewController.swift */; };
+		30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6585823504756008516A6 /* CatCollectionViewCell.swift */; };
 		30DE1A08234A616D000B4E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE1A07234A616D000B4E63 /* AppDelegate.swift */; };
-		30DE1A0A234A616D000B4E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE1A09234A616D000B4E63 /* SceneDelegate.swift */; };
 		30DE1A0C234A616D000B4E63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE1A0B234A616D000B4E63 /* ViewController.swift */; };
-		30DE1A0F234A616D000B4E63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DE1A0D234A616D000B4E63 /* Main.storyboard */; };
 		30DE1A11234A616E000B4E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DE1A10234A616E000B4E63 /* Assets.xcassets */; };
 		30DE1A14234A616E000B4E63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */; };
 		FDB7DE9D73714A224B79D31A /* Pods_MagazineReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13D3A4A785036F8CEF21874 /* Pods_MagazineReader.framework */; };
@@ -65,11 +64,10 @@
 		30C161BA234DABE600BC17F5 /* UTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTabBarController.swift; sourceTree = "<group>"; };
 		30C161BB234DABE600BC17F5 /* UNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNavigationController.swift; sourceTree = "<group>"; };
 		30C161BC234DABE600BC17F5 /* UWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UWebViewController.swift; sourceTree = "<group>"; };
+		30D6585823504756008516A6 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
 		30DE1A04234A616C000B4E63 /* MagazineReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagazineReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DE1A07234A616D000B4E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30DE1A09234A616D000B4E63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		30DE1A0B234A616D000B4E63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		30DE1A0E234A616D000B4E63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30DE1A10234A616E000B4E63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30DE1A13234A616E000B4E63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30DE1A15234A616E000B4E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +100,7 @@
 		302D8D51234F1E670001D856 /* Cate */ = {
 			isa = PBXGroup;
 			children = (
+				30D658572350471A008516A6 /* View */,
 				302D8D55234F3A380001D856 /* ViewController */,
 			);
 			path = Cate;
@@ -175,7 +174,6 @@
 			children = (
 				30C161AD234DAB8D00BC17F5 /* Global.swift */,
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
-				30DE1A0D234A616D000B4E63 /* Main.storyboard */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
 				30DE1A15234A616E000B4E63 /* Info.plist */,
 			);
@@ -205,7 +203,6 @@
 				302D8D51234F1E670001D856 /* Cate */,
 				302D8D52234F1E710001D856 /* Mine */,
 				30DE1A07234A616D000B4E63 /* AppDelegate.swift */,
-				30DE1A09234A616D000B4E63 /* SceneDelegate.swift */,
 				30DE1A0B234A616D000B4E63 /* ViewController.swift */,
 			);
 			path = Procedure;
@@ -240,6 +237,14 @@
 				30C161BC234DABE600BC17F5 /* UWebViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		30D658572350471A008516A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30D6585823504756008516A6 /* CatCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		30DE19FB234A616C000B4E63 = {
@@ -353,7 +358,6 @@
 			files = (
 				30DE1A14234A616E000B4E63 /* LaunchScreen.storyboard in Resources */,
 				30DE1A11234A616E000B4E63 /* Assets.xcassets in Resources */,
-				30DE1A0F234A616D000B4E63 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
 				302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */,
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
 				30C161A4234DAA0800BC17F5 /* UIImageExtensions.swift in Sources */,
@@ -428,7 +433,6 @@
 				30C161C0234DABE600BC17F5 /* UBaseCollectionReusableView.swift in Sources */,
 				30C161A5234DAA0800BC17F5 /* DispatchQueueExtension.swift in Sources */,
 				30C161C2234DABE600BC17F5 /* UBaseViewController.swift in Sources */,
-				30DE1A0A234A616D000B4E63 /* SceneDelegate.swift in Sources */,
 				30C161C3234DABE600BC17F5 /* UTabBarController.swift in Sources */,
 				30C161A6234DAA0800BC17F5 /* StringExtension.swift in Sources */,
 				30C1619F234DAA0800BC17F5 /* ArrayExtensions.swift in Sources */,
@@ -439,14 +443,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		30DE1A0D234A616D000B4E63 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30DE1A0E234A616D000B4E63 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -580,7 +576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -600,7 +596,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

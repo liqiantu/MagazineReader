@@ -21,6 +21,17 @@ extension UIColor {
     class var theme: UIColor {
         return UIColor(r: 29, g: 221, b: 43)
     }
+    
+    //返回随机颜色
+    class var randomColor: UIColor {
+        get {
+            let red = CGFloat(arc4random()%256)/255.0
+            let green = CGFloat(arc4random()%256)/255.0
+            let blue = CGFloat(arc4random()%256)/255.0
+            return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        }
+    }
+    
 }
 
 extension String {
@@ -34,6 +45,8 @@ extension NSNotification.Name {
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
+
+let sizeScale =  screenWidth/375
 
 var topVC: UIViewController? {
     var resultVC: UIViewController?

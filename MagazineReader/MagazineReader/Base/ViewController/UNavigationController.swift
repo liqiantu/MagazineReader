@@ -33,6 +33,14 @@ class UNavigationController: UINavigationController {
 
 extension UNavigationController: UIGestureRecognizerDelegate {
     
+    func addItem(_ isRight: Bool,item: UIBarButtonItem) {
+        if isRight {
+            self.navigationItem.rightBarButtonItem = item
+        }else {
+            self.navigationItem.leftBarButtonItem = item
+        }
+    }
+    
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let isLeftToRight = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight
         guard let ges = gestureRecognizer as? UIPanGestureRecognizer else { return true }
@@ -51,7 +59,7 @@ extension UNavigationController {
     }
 }
 
-
+// MARK: 设置barstyle
 enum UNavigationBarStyle {
     case theme
     case clear
