@@ -10,6 +10,10 @@ import UIKit
 
 class MineViewController: UBaseViewController {
     
+    // AutoLayout实现Parallax Header
+    //https://www.jianshu.com/p/714507b0129c
+    
+    
     private lazy var mineArr: Array = [
         "清理缓存"
     ]
