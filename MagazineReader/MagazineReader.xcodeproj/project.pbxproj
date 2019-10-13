@@ -32,6 +32,8 @@
 		30C161C4234DABE600BC17F5 /* UNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BB234DABE600BC17F5 /* UNavigationController.swift */; };
 		30C161C5234DABE600BC17F5 /* UWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BC234DABE600BC17F5 /* UWebViewController.swift */; };
 		30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6585823504756008516A6 /* CatCollectionViewCell.swift */; };
+		30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D826DA23534634000CFFFD /* FavouriteViewController.swift */; };
+		30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */; };
 		30DE1A08234A616D000B4E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE1A07234A616D000B4E63 /* AppDelegate.swift */; };
 		30DE1A0C234A616D000B4E63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE1A0B234A616D000B4E63 /* ViewController.swift */; };
 		30DE1A11234A616E000B4E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DE1A10234A616E000B4E63 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		30C161BB234DABE600BC17F5 /* UNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNavigationController.swift; sourceTree = "<group>"; };
 		30C161BC234DABE600BC17F5 /* UWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UWebViewController.swift; sourceTree = "<group>"; };
 		30D6585823504756008516A6 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
+		30D826DA23534634000CFFFD /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		30DE1A04234A616C000B4E63 /* MagazineReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagazineReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DE1A07234A616D000B4E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30DE1A0B234A616D000B4E63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		30C161B0234DABBE00BC17F5 /* Procedure */ = {
 			isa = PBXGroup;
 			children = (
+				30D826D8235345D9000CFFFD /* Favourite */,
 				302D8D50234F1E5D0001D856 /* Home */,
 				302D8D51234F1E670001D856 /* Cate */,
 				302D8D52234F1E710001D856 /* Mine */,
@@ -243,8 +248,25 @@
 			isa = PBXGroup;
 			children = (
 				30D6585823504756008516A6 /* CatCollectionViewCell.swift */,
+				30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		30D826D8235345D9000CFFFD /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				30D826D9235345F8000CFFFD /* ViewController */,
+			);
+			path = Favourite;
+			sourceTree = "<group>";
+		};
+		30D826D9235345F8000CFFFD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30D826DA23534634000CFFFD /* FavouriteViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		30DE19FB234A616C000B4E63 = {
@@ -410,10 +432,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */,
 				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
 				302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */,
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
 				30C161A4234DAA0800BC17F5 /* UIImageExtensions.swift in Sources */,
+				30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */,
 				30C161A1234DAA0800BC17F5 /* UIViewExtension.swift in Sources */,
 				30DE1A0C234A616D000B4E63 /* ViewController.swift in Sources */,
 				30C161A7234DAA0800BC17F5 /* DictionaryExtension.swift in Sources */,
@@ -574,7 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P72ZUNZG2W;
+				DEVELOPMENT_TEAM = SVL6V6LV2J;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,7 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P72ZUNZG2W;
+				DEVELOPMENT_TEAM = SVL6V6LV2J;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -15,8 +15,8 @@ class UTabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         
-        let homeVC = HomeViewController()
-        addChildViewController(homeVC, title: "首页", image: nil, selectedImage: nil)
+        let favVC = FavouriteViewController()
+        addChildViewController(favVC, title: "收藏", image: nil, selectedImage: nil)
         
         let cateVC = CateViewController()
         addChildViewController(cateVC, title: "分类", image: nil, selectedImage: nil)

@@ -1,14 +1,14 @@
 //
-//  CateViewController.swift
+//  FavouriteViewController.swift
 //  MagazineReader
 //
-//  Created by liqiantu on 2019/10/10.
+//  Created by 李前途 on 2019/10/13.
 //  Copyright © 2019 liqiantu. All rights reserved.
 //
 
 import UIKit
 
-class CateViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private lazy var collectionView: UICollectionView = {
         let cl = UICollectionViewFlowLayout.init()
@@ -21,38 +21,18 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
         cv.delegate = self
         cv.dataSource = self
         cv.register(cellType: CatCollectionViewCell.self)
-        cv.register(supplementaryViewType: CatCollectionViewSectionHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
         return cv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        loadData()
-    }
-    
-    override func configUI() {
-        view.addSubview(self.collectionView)
-        collectionView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view.usnp.edges)
-        }
-    }
-    
-    private func loadData() {
-        ApiLoadingProvider.request(.getAllCategory) { (res) in
-            switch res {
-            case let .success(response):
-                print(response.statusCode)
-                print(response.data)
-            case let .failure(err):
-                print(err.errorDescription!)
-            }
-        }
+
+        // Do any additional setup after loading the view.
     }
 
 }
 
-extension CateViewController {
+extension FavouriteViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }

@@ -31,6 +31,9 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<MyService>.Requ
     }
 }
 
+let ApiProvider = MoyaProvider<MyService>(requestClosure: timeoutClosure)
+let ApiLoadingProvider = MoyaProvider<MyService>(requestClosure: timeoutClosure, plugins: [LoadingPlugin])
+
 enum MyService {
     case getAllCategory
 }

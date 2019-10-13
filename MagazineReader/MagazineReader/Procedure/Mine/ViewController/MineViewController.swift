@@ -9,6 +9,10 @@
 import UIKit
 
 class MineViewController: UBaseViewController {
+    
+    private lazy var mineArr: Array = [
+        "清理缓存"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
