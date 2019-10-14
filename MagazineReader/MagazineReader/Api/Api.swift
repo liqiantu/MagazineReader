@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import HandyJSON
 import MBProgressHUD
 
 let LoadingPlugin = NetworkActivityPlugin { (type, target) in
@@ -47,7 +48,7 @@ extension MyService: TargetType {
     var path: String {
         switch self {
         case .getAllCategory:
-            return "/category/GetAllByKind?kind=2"
+            return "/category/GetAllByKind"
         default:
             return ""
         }
@@ -64,7 +65,7 @@ extension MyService: TargetType {
     var task: Task {
         switch self {
         case .getAllCategory:
-            return .requestPlain
+            return .requestParameters(parameters: ["kind":2], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }
@@ -72,10 +73,37 @@ extension MyService: TargetType {
     
     var headers: [String : String]? {
         return [
-            "cookie":"ASP.NET_SessionId=514ya5ch0fmzvgyfng0jqkpu; apptoken=Kp39Bq++a3uoGb1tSdrEQ0A/idC8i0Ul9AZQwKXgPtmdOgs7S1gPyLAFMFvhAQwg85dJmOseJMx7DA3llLnWrA==; ticket=B53LWMAsmsUR6eZZRHh1hAQOkK336H270GpK4wHVmt5UOMA8Bgx9yy3YGAvgtlsHKmHpDZ5tNILZvRqts_E0FIWREcfg0mkNmrViQHfv3IaALhZB_DHD8MWKO2P_mjll6XlBplA33k7p8UwxvsX05g=="
+            "cookie": token
         ]
     }
 
+}
+
+extension Response {
+    func mapModel<T: HandyJSON>(_ type: T.Type) throws -> T {
+        let jsonString = String(data: data, encoding: .utf8)
+        guard let model = JSONDeserializer<T>.deserializeFrom(json: jsonString) else {
+            throw MoyaError.jsonMapping(self)
+        }
+        return model
+    }
+}
+
+extension MoyaProvider {
+    @discardableResult
+    open func request<T>(_ target: Target,
+                                    model: T.Type,
+                                    completion: ((_ returnData: T?) -> Void)?) -> Cancellable? {
+        
+        return request(target, completion: { (result) in
+            guard let completion = completion else { return }
+            guard let returnData = try? result.value?.mapModel(ResponseData<T>.self) else {
+                completion(nil)
+                return
+            }
+            completion(returnData.Data)
+        })
+    }
 }
 
 // MARK: - Helpers

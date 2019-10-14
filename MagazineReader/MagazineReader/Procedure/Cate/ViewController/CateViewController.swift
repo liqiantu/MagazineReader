@@ -25,6 +25,12 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
         return cv
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,15 +45,11 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
     }
     
     private func loadData() {
-        ApiLoadingProvider.request(.getAllCategory) { (res) in
-            switch res {
-            case let .success(response):
-                print(response.statusCode)
-                print(response.data)
-            case let .failure(err):
-                print(err.errorDescription!)
-            }
+        
+        ApiProvider.request(.getAllCategory, model: [categoryModel].self) { (res) in
+            print(res)
         }
+        
     }
 
 }

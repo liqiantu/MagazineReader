@@ -9,8 +9,14 @@
 import Foundation
 import HandyJSON
 
+struct ResponseData<T>: HandyJSON {
+    var Code: Int = 0
+    var Data: T?
+    var Message: String = ""
+}
+
 // 杂志分类
-struct category: HandyJSON {
+struct categoryModel: HandyJSON {
     var CategoryCode: String?
     var CategoryName: String?
     var ResourceTotal: Int = 0

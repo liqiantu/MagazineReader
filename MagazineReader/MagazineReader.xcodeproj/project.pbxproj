@@ -12,6 +12,7 @@
 		302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D57234F3A800001D856 /* HomeViewController.swift */; };
 		302D8D5A234F3A8E0001D856 /* CateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D59234F3A8E0001D856 /* CateViewController.swift */; };
 		302D8D5C234F3A9C0001D856 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D5B234F3A9C0001D856 /* MineViewController.swift */; };
+		3099A39723541BED0055DB66 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39623541BED0055DB66 /* config.swift */; };
 		30C1619F234DAA0800BC17F5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C16196234DAA0700BC17F5 /* ArrayExtensions.swift */; };
 		30C161A0234DAA0800BC17F5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C16197234DAA0700BC17F5 /* UIColorExtension.swift */; };
 		30C161A1234DAA0800BC17F5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C16198234DAA0700BC17F5 /* UIViewExtension.swift */; };
@@ -47,6 +48,7 @@
 		302D8D57234F3A800001D856 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		302D8D59234F3A8E0001D856 /* CateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CateViewController.swift; sourceTree = "<group>"; };
 		302D8D5B234F3A9C0001D856 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		3099A39623541BED0055DB66 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		30C16196234DAA0700BC17F5 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		30C16197234DAA0700BC17F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		30C16198234DAA0700BC17F5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
 				30DE1A15234A616E000B4E63 /* Info.plist */,
+				3099A39623541BED0055DB66 /* config.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */,
 				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
 				302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */,
+				3099A39723541BED0055DB66 /* config.swift in Sources */,
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
 				30C161A4234DAA0800BC17F5 /* UIImageExtensions.swift in Sources */,
 				30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */,
@@ -598,7 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SVL6V6LV2J;
+				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -618,7 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SVL6V6LV2J;
+				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
