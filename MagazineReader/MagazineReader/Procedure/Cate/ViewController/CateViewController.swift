@@ -12,6 +12,7 @@ import MJRefresh
 class CateViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private var categoryModels: [categoryModel] = [categoryModel]()
+    private var sortedCategoryModels: [categoryModel] = [categoryModel]()
     private var magazinDescrModels = [[magazinDescrModel]]()
 
     private lazy var collectionView: UICollectionView = {
@@ -50,7 +51,6 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
     }
     
     @objc private func loadData() {
-        let group = DispatchGroup()
         
         if self.categoryModels.isEmpty == false {
             self.categoryModels.removeAll()
@@ -59,32 +59,32 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
             self.magazinDescrModels.removeAll()
         }
         
-        ApiLoadingProvider.request(.getAllCategory, model: [categoryModel].self) { [weak
-        self] (categoryModels) in
-            self?.categoryModels = categoryModels!
+        ApiLoadingProvider.request(.getAllCategory, model: [categoryModel].self) {  (categoryModels) in
+            self.categoryModels = categoryModels!
+            let group = DispatchGroup()
+
             categoryModels?.forEach({ (categoryModel) in
                 guard let code = categoryModel.CategoryCode else {
                     return
                 }
                 group.enter()
-                ApiProvider.request(.getMagazineByCategory(categorycode: code), model: [magazinDescrModel].self) { [weak
-                    self] (magazinDescrModel) in
+                ApiProvider.request(.getMagazineByCategory(categorycode: code), model: [magazinDescrModel].self) {  (magazinDescrModel) in
                     if let m = magazinDescrModel {
-                        self?.magazinDescrModels.append(m)
+                        self.magazinDescrModels.append(m)
+                        self.sortedCategoryModels.append(categoryModel)
                     }
                     group.leave()
                 }
             })
-        }
-    
-        group.notify(queue: DispatchQueue.main) {
-            if self.collectionView.mj_header.state == .refreshing {
-                self.collectionView.mj_header.endRefreshing()
+            
+            group.notify(queue: DispatchQueue.main) {
+                if self.collectionView.mj_header.state == .refreshing {
+                    self.collectionView.mj_header.endRefreshing()
+                }
+                self.collectionView.reloadData()
             }
-            self.collectionView.reloadData()
         }
     }
-
 }
 
 extension CateViewController {
@@ -94,7 +94,7 @@ extension CateViewController {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return categoryModels.count
+        return sortedCategoryModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -109,7 +109,7 @@ extension CateViewController {
         if kind == UICollectionView.elementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: CatCollectionViewSectionHeader.self)
             reuseView = header
-            header.model = categoryModels[indexPath.section]
+            header.model = sortedCategoryModels[indexPath.section]
             return reuseView!
         }
         
@@ -118,7 +118,7 @@ extension CateViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize.init(width: screenWidth, height: 55*sizeScale)
+        return CGSize.init(width: screenWidth, height: 45*sizeScale)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

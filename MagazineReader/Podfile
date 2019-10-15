@@ -18,5 +18,7 @@ target 'MagazineReader' do
   pod 'MBProgressHUD'
   pod 'IQKeyboardManagerSwift'
   pod 'EmptyDataSet-Swift'
+  
+  pod 'WoodPeckeriOS', :configurations => ['Debug']
 
 end

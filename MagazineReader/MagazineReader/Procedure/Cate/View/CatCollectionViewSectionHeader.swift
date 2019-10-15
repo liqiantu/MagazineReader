@@ -28,6 +28,12 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         btn.addTarget(self, action: #selector(moreAction), for: UIControl.Event.touchUpInside)
         return btn
     }()
+    
+    private lazy var bottemLine: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.lightGray
+        return v
+    }()
 
     override func configUI() {
         
@@ -35,6 +41,7 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         
         addSubview(titleLb)
         addSubview(moreBtn)
+        addSubview(bottemLine)
         
         titleLb.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -44,6 +51,12 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         moreBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.right.equalTo(self.snp.right).offset(-15*sizeScale)
+        }
+        
+        bottemLine.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.height.equalTo(1.5)
+            make.top.equalTo(moreBtn.snp.bottom).offset(4)
         }
     }
     
