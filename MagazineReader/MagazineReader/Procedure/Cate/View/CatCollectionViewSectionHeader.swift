@@ -24,11 +24,15 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
     private lazy var moreBtn: UIButton = {
         let btn = UIButton.init(type: UIButton.ButtonType.custom)
         btn.setTitle("更多", for: UIControl.State.normal)
+        btn.setTitleColor(UIColor.black, for: UIControl.State.normal)
         btn.addTarget(self, action: #selector(moreAction), for: UIControl.Event.touchUpInside)
         return btn
     }()
 
     override func configUI() {
+        
+//        backgroundColor = .lightGray
+        
         addSubview(titleLb)
         addSubview(moreBtn)
         
@@ -39,7 +43,7 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         
         moreBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-15*sizeScale)
+            make.right.equalTo(self.snp.right).offset(-15*sizeScale)
         }
     }
     
@@ -51,6 +55,14 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         }
         
         closure()
+    }
+    
+    
+    var model: categoryModel? {
+        didSet {
+            guard let m = model else { return }
+            titleLb.text = m.CategoryName
+        }
     }
 
 }

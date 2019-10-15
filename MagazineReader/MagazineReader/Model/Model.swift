@@ -13,6 +13,12 @@ struct ResponseData<T>: HandyJSON {
     var Code: Int = 0
     var Data: T?
     var Message: String = ""
+    
+    // 分页相关
+    var PageIndex: Int = 1
+    var PageSize: Int = 8
+    var PageTotal: Int = 0
+    var ItemCount: Int = 0
 }
 
 // 杂志分类
@@ -20,4 +26,12 @@ struct categoryModel: HandyJSON {
     var CategoryCode: String?
     var CategoryName: String?
     var ResourceTotal: Int = 0
+}
+
+// 杂志简介
+struct magazinDescrModel: HandyJSON {
+    var MagazineGuid: String?
+    var MagazineName: String?
+    var Year: Int = 0
+    var CoverImages: [String]?
 }

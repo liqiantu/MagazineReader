@@ -11,6 +11,7 @@ import Moya
 import HandyJSON
 import MBProgressHUD
 
+// 加载插件
 let LoadingPlugin = NetworkActivityPlugin { (type, target) in
     guard let vc = topVC else { return }
     switch type {
@@ -37,6 +38,7 @@ let ApiLoadingProvider = MoyaProvider<MyService>(requestClosure: timeoutClosure,
 
 enum MyService {
     case getAllCategory
+    case getMagazineByCategory(categorycode: String)
 }
 
 extension MyService: TargetType {
@@ -47,11 +49,34 @@ extension MyService: TargetType {
     
     var path: String {
         switch self {
-        case .getAllCategory:
-            return "/category/GetAllByKind"
-        default:
-            return ""
+        case .getAllCategory: return "/category/GetAllByKind"
+        case .getMagazineByCategory: return "/magazine/GetMagazineByCategory"
+        default: break
         }
+    }
+    
+    var task: Task {
+        var parameters: [String: Any] = [:]
+        switch self {
+        case .getAllCategory:
+            parameters = ["kind":2]
+        case let .getMagazineByCategory(categorycode):
+            parameters = ["categorycode": categorycode,
+                          "magazinetype": 2,
+                          "pagesize": 6,
+                          "pageindex": 1,
+                          "itemcount": 0]
+        default: break
+        }
+        
+        return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+
+    }
+    
+    var headers: [String : String]? {
+        return [
+            "cookie": token
+        ]
     }
     
     var method: Moya.Method {
@@ -60,21 +85,6 @@ extension MyService: TargetType {
     
     var sampleData: Data {
         return "sampleData".utf8Encoded
-    }
-    
-    var task: Task {
-        switch self {
-        case .getAllCategory:
-            return .requestParameters(parameters: ["kind":2], encoding: URLEncoding.queryString)
-        default:
-            return .requestPlain
-        }
-    }
-    
-    var headers: [String : String]? {
-        return [
-            "cookie": token
-        ]
     }
 
 }
