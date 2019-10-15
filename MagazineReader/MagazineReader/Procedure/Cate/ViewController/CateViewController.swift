@@ -58,6 +58,9 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
         if self.magazinDescrModels.isEmpty == false {
             self.magazinDescrModels.removeAll()
         }
+        if self.sortedCategoryModels.isEmpty == false {
+            self.sortedCategoryModels.removeAll()
+        }
         
         ApiLoadingProvider.request(.getAllCategory, model: [categoryModel].self) {  (categoryModels) in
             self.categoryModels = categoryModels!

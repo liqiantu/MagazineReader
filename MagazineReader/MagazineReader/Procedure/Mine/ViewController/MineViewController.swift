@@ -15,6 +15,8 @@ import UIKit
 
 class MineViewController: UBaseViewController {
 
+    private var height: CGFloat = 200
+    
     private lazy var mineArr: Array = [
         "清理缓存"
     ]
@@ -25,6 +27,7 @@ class MineViewController: UBaseViewController {
         tw.delegate = self
         tw.dataSource = self
         tw.register(cellType: UBaseTableViewCell.self)
+        tw.contentInset = UIEdgeInsets.init(top: self.height, left: 0, bottom: 0, right: 0)
         return tw
     }()
 

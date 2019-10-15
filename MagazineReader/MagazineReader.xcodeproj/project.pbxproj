@@ -34,6 +34,7 @@
 		30C161C3234DABE600BC17F5 /* UTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BA234DABE600BC17F5 /* UTabBarController.swift */; };
 		30C161C4234DABE600BC17F5 /* UNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BB234DABE600BC17F5 /* UNavigationController.swift */; };
 		30C161C5234DABE600BC17F5 /* UWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C161BC234DABE600BC17F5 /* UWebViewController.swift */; };
+		30C188232356225800FDF273 /* MineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C188222356225800FDF273 /* MineHeader.swift */; };
 		30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6585823504756008516A6 /* CatCollectionViewCell.swift */; };
 		30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D826DA23534634000CFFFD /* FavouriteViewController.swift */; };
 		30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */; };
@@ -72,6 +73,7 @@
 		30C161BA234DABE600BC17F5 /* UTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTabBarController.swift; sourceTree = "<group>"; };
 		30C161BB234DABE600BC17F5 /* UNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNavigationController.swift; sourceTree = "<group>"; };
 		30C161BC234DABE600BC17F5 /* UWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UWebViewController.swift; sourceTree = "<group>"; };
+		30C188222356225800FDF273 /* MineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineHeader.swift; sourceTree = "<group>"; };
 		30D6585823504756008516A6 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
 		30D826DA23534634000CFFFD /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		302D8D52234F1E710001D856 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				30C188212356224000FDF273 /* View */,
 				302D8D56234F3A420001D856 /* ViewController */,
 			);
 			path = Mine;
@@ -250,6 +253,14 @@
 				30C161BC234DABE600BC17F5 /* UWebViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		30C188212356224000FDF273 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30C188222356225800FDF273 /* MineHeader.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		30D658572350471A008516A6 /* View */ = {
@@ -464,6 +475,7 @@
 				30C161C4234DABE600BC17F5 /* UNavigationController.swift in Sources */,
 				30C161C5234DABE600BC17F5 /* UWebViewController.swift in Sources */,
 				30C161A2234DAA0800BC17F5 /* UIBarButtonItemExtension.swift in Sources */,
+				30C188232356225800FDF273 /* MineHeader.swift in Sources */,
 				30C161A3234DAA0800BC17F5 /* UIDeviceExtension.swift in Sources */,
 				302D8D4F234DE25C0001D856 /* Model.swift in Sources */,
 				30C161C0234DABE600BC17F5 /* UBaseCollectionReusableView.swift in Sources */,
