@@ -12,7 +12,7 @@ typealias catCollectionViewSectionHeaderMoreActionClosure = () -> Void
 
 class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
     
-    private var moreActionCLosure: catCollectionViewSectionHeaderMoreActionClosure?
+    public var moreActionCLosure: catCollectionViewSectionHeaderMoreActionClosure?
     
     private lazy var titleLb: UILabel = {
         let lb = UILabel.init()
@@ -24,7 +24,7 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
     private lazy var moreBtn: UIButton = {
         let btn = UIButton.init(type: UIButton.ButtonType.custom)
         btn.setTitle("更多", for: UIControl.State.normal)
-        btn.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        btn.setTitleColor(UIColor.blue, for: UIControl.State.normal)
         btn.addTarget(self, action: #selector(moreAction), for: UIControl.Event.touchUpInside)
         return btn
     }()
@@ -56,13 +56,11 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         bottemLine.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalTo(1.5)
-            make.top.equalTo(moreBtn.snp.bottom).offset(4)
+            make.top.equalTo(moreBtn.snp.bottom).offset(0)
         }
     }
     
     @objc func moreAction() {
-        print("clickMore")
-        
         guard let closure = moreActionCLosure else {
             return
         }

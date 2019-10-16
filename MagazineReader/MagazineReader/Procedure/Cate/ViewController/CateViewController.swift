@@ -113,6 +113,12 @@ extension CateViewController {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: CatCollectionViewSectionHeader.self)
             reuseView = header
             header.model = sortedCategoryModels[indexPath.section]
+            header.moreActionCLosure = { [weak self] in
+                let m = self?.sortedCategoryModels[indexPath.section]
+                let detailVC = CatDetailViewController.init()
+                detailVC.categorycode = m?.CategoryCode
+                self?.navigationController?.pushViewController(detailVC, animated: true)
+            }
             return reuseView!
         }
         
@@ -125,7 +131,6 @@ extension CateViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = CatDetailViewController.init()
-        navigationController?.pushViewController(detailVC, animated: true)
+
     }
 }

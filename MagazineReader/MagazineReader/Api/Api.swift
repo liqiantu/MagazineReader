@@ -39,6 +39,7 @@ let ApiLoadingProvider = MoyaProvider<MyService>(requestClosure: timeoutClosure,
 enum MyService {
     case getAllCategory
     case getMagazineByCategory(categorycode: String)
+    case getMagazineByCategoryWithPage(categorycode: String, pagesize: Int, pageindex: Int)
 }
 
 extension MyService: TargetType {
@@ -50,7 +51,9 @@ extension MyService: TargetType {
     var path: String {
         switch self {
         case .getAllCategory: return "/category/GetAllByKind"
-        case .getMagazineByCategory: return "/magazine/GetMagazineByCategory"
+        case .getMagazineByCategory(categorycode: _),
+             .getMagazineByCategoryWithPage(categorycode: _, pagesize: _, pageindex: _):
+            return "/magazine/GetMagazineByCategory"
         default: break
         }
     }
@@ -65,6 +68,12 @@ extension MyService: TargetType {
                           "magazinetype": 2,
                           "pagesize": 6,
                           "pageindex": 1,
+                          "itemcount": 0]
+        case let .getMagazineByCategoryWithPage(categorycode: categorycode, pagesize: pagesize, pageindex: pageindex):
+            parameters = ["categorycode": categorycode,
+                          "magazinetype": 2,
+                          "pagesize": pagesize,
+                          "pageindex": pageindex,
                           "itemcount": 0]
         default: break
         }
@@ -112,6 +121,21 @@ extension MoyaProvider {
                 return
             }
             completion(returnData.Data)
+        })
+    }
+    
+    @discardableResult
+    func requestPageInfo<T>(_ target: Target,
+                                    model: T.Type,
+                                    completion: ((_ returnData: ResponseData<T>?) -> Void)?) -> Cancellable? {
+        
+        return request(target, completion: { (result) in
+            guard let completion = completion else { return }
+            guard let returnData = try? result.value?.mapModel(ResponseData<T>.self) else {
+                completion(nil)
+                return
+            }
+            completion(returnData)
         })
     }
 }

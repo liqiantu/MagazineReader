@@ -8,34 +8,54 @@
 
 import UIKit
 
-    // AutoLayout实现Parallax Header
-    //https://www.jianshu.com/p/714507b0129c
     // How to create a Section Background in a UICollectionView in Swift
     //    http://strawberrycode.com/blog/how-to-create-a-section-background-in-a-uicollectionview-in-ios-swift/
 
 class MineViewController: UBaseViewController {
 
-    private var height: CGFloat = 200
+    private var height: CGFloat = 300
     
     private lazy var mineArr: Array = [
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
+        "清理缓存",
         "清理缓存"
+
     ]
     
-    lazy var tableView: UITableView = {
-        let tw = UITableView(frame: .zero, style: .grouped)
+    private lazy var tableView: UITableView = {
+        let tw = UITableView(frame: .zero, style: .plain)
         tw.backgroundColor = UIColor.background
         tw.delegate = self
         tw.dataSource = self
         tw.register(cellType: UBaseTableViewCell.self)
-        tw.contentInset = UIEdgeInsets.init(top: self.height, left: 0, bottom: 0, right: 0)
         return tw
+    }()
+    
+    private lazy var headerView: MineHeader = {
+        let v = MineHeader.init()
+        return v
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view.usnp.edges)
+        }
     }
-
 }
 
 extension MineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -45,8 +65,7 @@ extension MineViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UBaseTableViewCell.self)
+        cell.textLabel?.text = mineArr[indexPath.row]
         return cell
-    }
-    
-    
+    }    
 }

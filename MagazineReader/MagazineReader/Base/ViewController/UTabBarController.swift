@@ -16,22 +16,22 @@ class UTabBarController: UITabBarController {
         tabBar.isTranslucent = false
         
         let favVC = FavouriteViewController()
-        addChildViewController(favVC, title: "收藏", image: nil, selectedImage: nil)
+        addChildViewController(favVC, title: "书架", image: "tab_book", selectedImage: "tab_book_S")
         
         let cateVC = CateViewController()
-        addChildViewController(cateVC, title: "分类", image: nil, selectedImage: nil)
+        addChildViewController(cateVC, title: "分类", image: "tab_class", selectedImage: "tab_class_S")
         
         let mineVC = MineViewController()
-        addChildViewController(mineVC, title: "我的", image: nil, selectedImage: nil)
+        addChildViewController(mineVC, title: "我的", image: "tab_mine", selectedImage: "tab_mine_S")
         
     }
     
-    func addChildViewController(_ childController: UIViewController, title:String?, image:UIImage? ,selectedImage:UIImage?) {
+    func addChildViewController(_ childController: UIViewController, title:String?, image:String? ,selectedImage:String?) {
         
         childController.title = title
         childController.tabBarItem = UITabBarItem(title: nil,
-                                                  image: image?.withRenderingMode(.alwaysOriginal),
-                                                  selectedImage: selectedImage?.withRenderingMode(.alwaysOriginal))
+                                                  image: UIImage.init(named: image!)?.withRenderingMode(.alwaysOriginal),
+                                                  selectedImage: UIImage.init(named: selectedImage!)?.withRenderingMode(.alwaysOriginal))
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             childController.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
