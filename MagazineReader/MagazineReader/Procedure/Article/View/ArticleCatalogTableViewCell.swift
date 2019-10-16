@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleCatalogTableViewCell: UBaseTableViewCell {
+class ArticleCatalogTableViewCell: UBaseCollectionViewCell {
 
     override func configUI() {
         

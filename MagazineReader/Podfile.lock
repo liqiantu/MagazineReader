@@ -3,6 +3,7 @@ PODS:
   - EmptyDataSet-Swift (5.0.0)
   - HandyJSON (5.0.0)
   - IQKeyboardManagerSwift (6.4.2)
+  - JXCategoryView (1.5.2)
   - JXPagingView/Paging (1.1.18)
   - Kingfisher (5.7.1)
   - LLCycleScrollView (1.6.0):
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - EmptyDataSet-Swift
   - HandyJSON
   - IQKeyboardManagerSwift
+  - JXCategoryView
   - JXPagingView/Paging
   - Kingfisher
   - LLCycleScrollView
@@ -40,11 +42,13 @@ DEPENDENCIES:
   - WoodPeckeriOS
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - EmptyDataSet-Swift
     - HandyJSON
     - IQKeyboardManagerSwift
+    - JXCategoryView
+    - JXPagingView
     - Kingfisher
     - LLCycleScrollView
     - MBProgressHUD
@@ -55,14 +59,13 @@ SPEC REPOS:
     - SnapKit
     - Then
     - WoodPeckeriOS
-  trunk:
-    - JXPagingView
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
+  JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
   JXPagingView: 34bc70f962404e1a0b092ef643e5ccf6882119b2
   Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   LLCycleScrollView: a08f666671f9fd1a205df9defebc3c217d59abc8
@@ -75,6 +78,6 @@ SPEC CHECKSUMS:
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   WoodPeckeriOS: 3802768524692cf3ff7c3a1973b4add455597861
 
-PODFILE CHECKSUM: b43752e5bbe6d60dc75b1168da67d197b7531602
+PODFILE CHECKSUM: 78226bf15c9a8359eb00f3a0c2dcf3f2922e8202
 
 COCOAPODS: 1.8.3

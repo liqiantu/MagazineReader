@@ -19,6 +19,7 @@ target 'MagazineReader' do
   pod 'IQKeyboardManagerSwift'
   pod 'EmptyDataSet-Swift'
   pod 'JXPagingView/Paging'
+  pod 'JXCategoryView'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 
