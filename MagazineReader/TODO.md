@@ -6,9 +6,8 @@ http://strawberrycode.com/blog/how-to-create-a-section-background-in-a-uicollect
 功能
 1.收藏功能
 2.icloud同步收藏
-3.cell详情标题切换
 4.mvp 组件化
-5.分类请求串行
+5.分类请求串行 https://www.jianshu.com/p/09d1ebcbd2a0     ok
 
 UI
 葫芦时刻
