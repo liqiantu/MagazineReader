@@ -26,6 +26,9 @@ struct categoryModel: HandyJSON {
     var CategoryCode: String?
     var CategoryName: String?
     var ResourceTotal: Int = 0
+    
+    var _models: [magazinDescrModel]?
+    
 }
 
 // 杂志简介
@@ -35,5 +38,33 @@ struct magazinDescrModel: HandyJSON {
     var Year: String = ""
     var Issue: String = ""
     var CoverImages: [String]? // [2] large 图片
+}
+
+// 当期杂志简介
+struct magazineIssueModel: HandyJSON {
+    var MagazineGuid: String?
+    var MagazineName: String = ""
+    var Year: String = ""
+    var Issue: String = ""
+    var Note: String = ""
+    var CoverImages: [String]? // [2] large 图片
+}
+
+// 杂志目录
+struct magazinCatalogModel: HandyJSON {
+    var Column: String = ""
+    var Articles: [articleModel]?
+}
+
+// 杂志目录文章简介
+struct articleModel: HandyJSON {
+    var ArticleID: String?
+    var Title: String = ""
+    var Author: String = ""
+    var Summary: String = ""
+    var FirstImg: String?
+    var IsCover: Bool = false
+    var Sequence: Int = 1
+
 }
 

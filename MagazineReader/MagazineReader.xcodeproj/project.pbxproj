@@ -13,9 +13,13 @@
 		302D8D5A234F3A8E0001D856 /* CateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D59234F3A8E0001D856 /* CateViewController.swift */; };
 		302D8D5C234F3A9C0001D856 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D5B234F3A9C0001D856 /* MineViewController.swift */; };
 		303A159F2356DB9D00979962 /* CatDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A159E2356DB9D00979962 /* CatDetailCell.swift */; };
-		303A15A3235708F100979962 /* ArticleCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15A2235708F100979962 /* ArticleCatalogViewController.swift */; };
-		303A15A62357095600979962 /* ArticleCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15A52357095600979962 /* ArticleCatalogTableViewCell.swift */; };
+		303A15A3235708F100979962 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15A2235708F100979962 /* ArticleDetailViewController.swift */; };
 		303A15A8235717E100979962 /* ArticleCatalogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15A7235717E100979962 /* ArticleCatalogHeaderView.swift */; };
+		303A15AA235800A900979962 /* ArticlePastIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15A9235800A900979962 /* ArticlePastIssueViewController.swift */; };
+		303A15AC235803F200979962 /* ArticleCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15AB235803F200979962 /* ArticleCatalogViewController.swift */; };
+		303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */; };
+		303A15B12358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */; };
+		303A15B3235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */; };
 		3099A39723541BED0055DB66 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39623541BED0055DB66 /* config.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
 		3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */; };
@@ -56,9 +60,14 @@
 		302D8D59234F3A8E0001D856 /* CateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CateViewController.swift; sourceTree = "<group>"; };
 		302D8D5B234F3A9C0001D856 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		303A159E2356DB9D00979962 /* CatDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailCell.swift; sourceTree = "<group>"; };
-		303A15A2235708F100979962 /* ArticleCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogViewController.swift; sourceTree = "<group>"; };
-		303A15A52357095600979962 /* ArticleCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogTableViewCell.swift; sourceTree = "<group>"; };
+		303A15A2235708F100979962 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		303A15A7235717E100979962 /* ArticleCatalogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogHeaderView.swift; sourceTree = "<group>"; };
+		303A15A9235800A900979962 /* ArticlePastIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePastIssueViewController.swift; sourceTree = "<group>"; };
+		303A15AB235803F200979962 /* ArticleCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogViewController.swift; sourceTree = "<group>"; };
+		303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		303A15AF23583F1C00979962 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
+		303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableFooterView.swift; sourceTree = "<group>"; };
 		3099A39623541BED0055DB66 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
 		3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +188,9 @@
 		303A15A1235708C300979962 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				303A15A2235708F100979962 /* ArticleCatalogViewController.swift */,
+				303A15A2235708F100979962 /* ArticleDetailViewController.swift */,
+				303A15A9235800A900979962 /* ArticlePastIssueViewController.swift */,
+				303A15AB235803F200979962 /* ArticleCatalogViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -187,8 +198,10 @@
 		303A15A42357093300979962 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				303A15A52357095600979962 /* ArticleCatalogTableViewCell.swift */,
 				303A15A7235717E100979962 /* ArticleCatalogHeaderView.swift */,
+				303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */,
+				303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */,
+				303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +341,7 @@
 		30DE19FB234A616C000B4E63 = {
 			isa = PBXGroup;
 			children = (
+				303A15AF23583F1C00979962 /* TODO.md */,
 				30DE1A06234A616D000B4E63 /* MagazineReader */,
 				30DE1A05234A616C000B4E63 /* Products */,
 				93DB9DE6C9A8B5942DF87411 /* Pods */,
@@ -488,9 +502,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303A15B3235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift in Sources */,
 				30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */,
 				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
-				303A15A62357095600979962 /* ArticleCatalogTableViewCell.swift in Sources */,
 				3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */,
 				302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */,
 				3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */,
@@ -498,13 +512,16 @@
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
 				30C161A4234DAA0800BC17F5 /* UIImageExtensions.swift in Sources */,
 				30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */,
+				303A15B12358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift in Sources */,
 				30C161A1234DAA0800BC17F5 /* UIViewExtension.swift in Sources */,
 				30DE1A0C234A616D000B4E63 /* ViewController.swift in Sources */,
 				30C161A7234DAA0800BC17F5 /* DictionaryExtension.swift in Sources */,
 				30DE1A08234A616D000B4E63 /* AppDelegate.swift in Sources */,
 				303A159F2356DB9D00979962 /* CatDetailCell.swift in Sources */,
-				303A15A3235708F100979962 /* ArticleCatalogViewController.swift in Sources */,
+				303A15AA235800A900979962 /* ArticlePastIssueViewController.swift in Sources */,
+				303A15A3235708F100979962 /* ArticleDetailViewController.swift in Sources */,
 				302D8D4D234DE2380001D856 /* File.swift in Sources */,
+				303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */,
 				30C161A0234DAA0800BC17F5 /* UIColorExtension.swift in Sources */,
 				30C161AE234DAB8D00BC17F5 /* Global.swift in Sources */,
 				30C161BD234DABE600BC17F5 /* UBaseTableViewHeaderFooterView.swift in Sources */,
@@ -523,6 +540,7 @@
 				30C161C2234DABE600BC17F5 /* UBaseViewController.swift in Sources */,
 				30C161C3234DABE600BC17F5 /* UTabBarController.swift in Sources */,
 				30C161A6234DAA0800BC17F5 /* StringExtension.swift in Sources */,
+				303A15AC235803F200979962 /* ArticleCatalogViewController.swift in Sources */,
 				30C1619F234DAA0800BC17F5 /* ArrayExtensions.swift in Sources */,
 				30C161BE234DABE600BC17F5 /* UBaseCollectionViewCell.swift in Sources */,
 			);
@@ -662,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SVL6V6LV2J;
+				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -682,7 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SVL6V6LV2J;
+				DEVELOPMENT_TEAM = P72ZUNZG2W;
 				INFOPLIST_FILE = "$(SRCROOT)/MagazineReader/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

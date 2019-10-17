@@ -8,9 +8,6 @@
 
 import UIKit
 
-    // How to create a Section Background in a UICollectionView in Swift
-    //    http://strawberrycode.com/blog/how-to-create-a-section-background-in-a-uicollectionview-in-ios-swift/
-
 class MineViewController: UBaseViewController {
 
     private var height: CGFloat = 300

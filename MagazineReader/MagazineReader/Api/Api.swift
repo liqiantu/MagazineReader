@@ -26,7 +26,7 @@ let LoadingPlugin = NetworkActivityPlugin { (type, target) in
 let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<MyService>.RequestResultClosure) -> Void in
     
     if var urlRequest = try? endpoint.urlRequest() {
-        urlRequest.timeoutInterval = 5
+        urlRequest.timeoutInterval = 15
         closure(.success(urlRequest))
     } else {
         closure(.failure(MoyaError.requestMapping(endpoint.url)))
@@ -40,6 +40,9 @@ enum MyService {
     case getAllCategory
     case getMagazineByCategory(categorycode: String)
     case getMagazineByCategoryWithPage(categorycode: String, pagesize: Int, pageindex: Int)
+    case getMagazineIssues(magazineguid: String)
+    case getMagazineIssue(magazineguid: String, year: String, issue: String)
+    case getMagazineCatalog(magazineguid: String, year: String, issue: String)
 }
 
 extension MyService: TargetType {
@@ -54,6 +57,12 @@ extension MyService: TargetType {
         case .getMagazineByCategory(categorycode: _),
              .getMagazineByCategoryWithPage(categorycode: _, pagesize: _, pageindex: _):
             return "/magazine/GetMagazineByCategory"
+        case .getMagazineIssues(magazineguid: _):
+            return "/magazine/GetMagazineIssues"
+        case .getMagazineIssue(magazineguid: _, year: _, issue: _):
+            return "/magazine/GetMagazineIssue"
+        case .getMagazineCatalog(magazineguid: _, year: _, issue: _):
+            return "/magazine/article/catalog"
         default: break
         }
     }
@@ -75,6 +84,17 @@ extension MyService: TargetType {
                           "pagesize": pagesize,
                           "pageindex": pageindex,
                           "itemcount": 0]
+        case let .getMagazineIssues(magazineguid: magazineguid):
+            parameters = ["magazineguid": magazineguid,
+                          "magazinetype": 2]
+        case let .getMagazineIssue(magazineguid: magazineguid, year: year, issue: issue):
+            parameters = ["magazineguid": magazineguid,
+                          "year": year,
+                          "issue": issue]
+        case let .getMagazineCatalog(magazineguid: magazineguid, year: year, issue: issue):
+            parameters = ["magazineguid": magazineguid,
+                          "year": year,
+                          "issue": issue]
         default: break
         }
         

@@ -9,11 +9,13 @@
 import UIKit
 import MJRefresh
 
+fileprivate class collectionModel {
+    var headerModel: categoryModel?
+    var bodyModel: [magazinDescrModel]?
+}
+
 class CateViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    private var categoryModels: [categoryModel] = [categoryModel]()
-    private var sortedCategoryModels: [categoryModel] = [categoryModel]()
-    private var magazinDescrModels = [[magazinDescrModel]]()
+    private var models = [collectionModel]()
 
     private lazy var collectionView: UICollectionView = {
         let cl = UICollectionViewFlowLayout.init()
@@ -51,30 +53,23 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
     }
     
     @objc private func loadData() {
-        
-        if self.categoryModels.isEmpty == false {
-            self.categoryModels.removeAll()
-        }
-        if self.magazinDescrModels.isEmpty == false {
-            self.magazinDescrModels.removeAll()
-        }
-        if self.sortedCategoryModels.isEmpty == false {
-            self.sortedCategoryModels.removeAll()
+        if self.models.isEmpty == false {
+            self.models.removeAll()
         }
         
         ApiLoadingProvider.request(.getAllCategory, model: [categoryModel].self) {  (categoryModels) in
-            self.categoryModels = categoryModels!
             let group = DispatchGroup()
-
             categoryModels?.forEach({ (categoryModel) in
                 guard let code = categoryModel.CategoryCode else {
                     return
                 }
                 group.enter()
-                ApiProvider.request(.getMagazineByCategory(categorycode: code), model: [magazinDescrModel].self) {  (magazinDescrModel) in
+                let model = collectionModel()
+                model.headerModel = categoryModel
+                self.models.append(model)
+                ApiProvider.request(.getMagazineByCategory(categorycode: code), model: [magazinDescrModel].self) { [modelcopy = model] (magazinDescrModel) in
                     if let m = magazinDescrModel {
-                        self.magazinDescrModels.append(m)
-                        self.sortedCategoryModels.append(categoryModel)
+                        model.bodyModel = m
                     }
                     group.leave()
                 }
@@ -92,17 +87,17 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
 
 extension CateViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = magazinDescrModels[section].count
-        return count
+        let count = models[section].bodyModel?.count
+        return count!
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sortedCategoryModels.count
+        return models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CatCollectionViewCell.self)
-        cell.model = magazinDescrModels[indexPath.section][indexPath.row]
+        cell.model = models[indexPath.section].bodyModel![indexPath.row]
         return cell
     }
     
@@ -112,9 +107,9 @@ extension CateViewController {
         if kind == UICollectionView.elementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: CatCollectionViewSectionHeader.self)
             reuseView = header
-            header.model = sortedCategoryModels[indexPath.section]
+            let m = models[indexPath.section].headerModel
+            header.model = m
             header.moreActionCLosure = { [weak self] in
-                let m = self?.sortedCategoryModels[indexPath.section]
                 let detailVC = CatDetailViewController.init()
                 detailVC.categorycode = m?.CategoryCode
                 self?.navigationController?.pushViewController(detailVC, animated: true)
@@ -131,6 +126,8 @@ extension CateViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let vc = ArticleDetailViewController()
+        vc.model = models[indexPath.section].bodyModel![indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
