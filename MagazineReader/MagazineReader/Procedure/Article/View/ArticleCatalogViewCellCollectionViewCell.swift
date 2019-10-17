@@ -11,6 +11,7 @@ import UIKit
 class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
     private lazy var titleLb: UILabel = {
         let v = UILabel.init()
+        v.textColor = .blue
         return v
     }()
     
@@ -22,6 +23,7 @@ class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
     }()
     
     override func configUI() {
+        backgroundColor = UIColor.white
         contentView.addSubview(titleLb)
         contentView.addSubview(authorLb)
         
@@ -31,7 +33,7 @@ class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
         }
         authorLb.snp.makeConstraints { (make) in
             make.top.equalTo(titleLb.snp.bottom).offset(5*sizeScale)
-            make.bottom.equalToSuperview().offset(5*sizeScale)
+            make.left.equalTo(self.titleLb)
         }
     }
     

@@ -11,11 +11,13 @@ import UIKit
 class ArticleCatalogCollectionReusableHeaderView: UBaseCollectionReusableView {
     private lazy var titleLb: UILabel = {
         let v = UILabel()
+        v.font = UIFont.systemFont(ofSize: 20)
         v.textColor = .purple
         return v
     }()
     
     override func configUI() {
+        backgroundColor = .white
         addSubview(titleLb)
         titleLb.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().inset(10)

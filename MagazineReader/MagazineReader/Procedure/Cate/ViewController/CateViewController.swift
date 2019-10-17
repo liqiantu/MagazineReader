@@ -19,6 +19,7 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
 
     private lazy var collectionView: UICollectionView = {
         let cl = UICollectionViewFlowLayout.init()
+        cl.sectionHeadersPinToVisibleBounds = true
         cl.minimumLineSpacing = 5
         cl.minimumInteritemSpacing = 5
         cl.itemSize = CGSize.init(width: screenWidth / 3 - 10, height: 120*sizeScale)

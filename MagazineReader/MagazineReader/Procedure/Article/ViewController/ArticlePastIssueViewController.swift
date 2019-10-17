@@ -11,7 +11,7 @@ import MJRefresh
 import JXPagingView
 
 class ArticlePastIssueViewController: UBaseViewController {
-    
+    var navVc: UINavigationController?
     private lazy var tableView: UITableView = {
         let tw = UITableView(frame: .zero, style: .plain)
         tw.backgroundColor = UIColor.background

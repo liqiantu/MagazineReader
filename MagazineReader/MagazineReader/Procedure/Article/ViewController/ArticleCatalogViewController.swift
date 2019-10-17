@@ -11,6 +11,7 @@ import MJRefresh
 import JXPagingView
 
 class ArticleCatalogViewController: UBaseViewController {
+    var navVc: UINavigationController?
     var model: magazinDescrModel?
     var catalogModels = [magazinCatalogModel]()
     
@@ -18,7 +19,7 @@ class ArticleCatalogViewController: UBaseViewController {
         let cl = UICollectionViewFlowLayout.init()
         cl.minimumLineSpacing = 5
         cl.minimumInteritemSpacing = 5
-        cl.itemSize = CGSize.init(width: screenWidth / 3 - 10, height: 120*sizeScale)
+        cl.sectionHeadersPinToVisibleBounds = true
         let cv = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: cl)
         cv.backgroundColor = .white
         cv.alwaysBounceVertical = true
@@ -40,6 +41,8 @@ class ArticleCatalogViewController: UBaseViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.collectionView.mj_header.beginRefreshing()
     }
     
     override func configUI() {
@@ -76,6 +79,9 @@ extension ArticleCatalogViewController: UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: screenWidth, height: 60*sizeScale)
+    }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
@@ -89,6 +95,33 @@ extension ArticleCatalogViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize.init(width: screenWidth, height: 40*sizeScale)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        let cellW = screenWidth
+        let cellH: CGFloat = 100
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = CGRect.init(x: 0, y: 0, width: cellW, height: cellH)
+        
+        let borderLayer = CAShapeLayer()
+        borderLayer.frame = maskLayer.frame
+        borderLayer.lineWidth = 1
+        borderLayer.strokeColor = UIColor.green.cgColor
+        
+        let bezierPath = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: cellW, height: cellH), cornerRadius: 5)
+        maskLayer.path = bezierPath.cgPath
+        borderLayer.path = bezierPath.cgPath
+        
+//        cell.contentView.layer.insertSublayer(borderLayer, at: 0)
+        cell.layer.mask = maskLayer
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ArticleContentViewController()
+        vc.model = catalogModels[indexPath.section].Articles![indexPath.row]
+        navVc?.pushViewController(vc, animated: true)
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

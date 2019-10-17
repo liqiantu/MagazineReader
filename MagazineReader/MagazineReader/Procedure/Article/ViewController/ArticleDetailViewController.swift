@@ -135,11 +135,13 @@ extension ArticleDetailViewController: JXPagingViewDelegate {
         if index == 0 {
             let vc = ArticleCatalogViewController()
             vc.model = self.model
+            vc.navVc = self.navigationController
             return vc
         }
         
         let vc = ArticlePastIssueViewController()
         vc.model = self.model
+        vc.navVc = self.navigationController
         return vc
     }
 }

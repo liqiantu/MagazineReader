@@ -43,6 +43,7 @@ enum MyService {
     case getMagazineIssues(magazineguid: String)
     case getMagazineIssue(magazineguid: String, year: String, issue: String)
     case getMagazineCatalog(magazineguid: String, year: String, issue: String)
+    case getDetail(articleid: String)
 }
 
 extension MyService: TargetType {
@@ -63,6 +64,8 @@ extension MyService: TargetType {
             return "/magazine/GetMagazineIssue"
         case .getMagazineCatalog(magazineguid: _, year: _, issue: _):
             return "/magazine/article/catalog"
+        case .getDetail(articleid: _):
+            return "/magazine/article/GetDetail"
         default: break
         }
     }
@@ -95,6 +98,8 @@ extension MyService: TargetType {
             parameters = ["magazineguid": magazineguid,
                           "year": year,
                           "issue": issue]
+        case let .getDetail(articleid: articleid):
+            parameters = ["articleid":articleid]
         default: break
         }
         

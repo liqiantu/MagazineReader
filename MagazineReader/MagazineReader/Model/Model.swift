@@ -56,7 +56,7 @@ struct magazinCatalogModel: HandyJSON {
     var Articles: [articleModel]?
 }
 
-// 杂志目录文章简介
+// 目录中每个文章的简介
 struct articleModel: HandyJSON {
     var ArticleID: String?
     var Title: String = ""
@@ -65,6 +65,23 @@ struct articleModel: HandyJSON {
     var FirstImg: String?
     var IsCover: Bool = false
     var Sequence: Int = 1
-
 }
 
+// 文章内容
+
+struct PreviousNextArticle {
+    var ArticleID: String = ""
+    var Title: String = ""
+}
+
+struct articleContentModel: HandyJSON {
+    var ArticleID: String = ""
+    var Title: String = ""
+    var SubTitle: String = ""
+    var Author: String = ""
+    var Summary: String = ""
+    var Content: String = ""
+    var PreviousArticle: PreviousNextArticle?
+    var NextArticle: PreviousNextArticle?
+    var PageCount: Int = 0
+}

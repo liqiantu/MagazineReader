@@ -36,8 +36,7 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
     }()
 
     override func configUI() {
-        
-//        backgroundColor = .lightGray
+        backgroundColor = .white
         
         addSubview(titleLb)
         addSubview(moreBtn)
@@ -55,8 +54,8 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         
         bottemLine.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
-            make.height.equalTo(1.5)
-            make.top.equalTo(moreBtn.snp.bottom).offset(0)
+            make.height.equalTo(1.5*sizeScale)
+            make.top.equalTo(moreBtn.snp.bottom).offset(2*sizeScale)
         }
     }
     

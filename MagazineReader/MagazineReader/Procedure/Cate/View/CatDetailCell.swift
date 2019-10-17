@@ -40,14 +40,14 @@ class CatDetailCell: UBaseTableViewCell {
         }
         
         titleLb.snp.makeConstraints { (make) in
-            make.top.equalTo(coveImgV.snp.top)
-            make.left.equalTo(coveImgV.snp.right).offset(5*sizeScale)
+            make.top.equalTo(coveImgV.snp.top).offset(10*sizeScale)
+            make.left.equalTo(coveImgV.snp.right).offset(10*sizeScale)
             make.right.equalToSuperview()
         }
         
         updateDateLb.snp.makeConstraints { (make) in
             make.left.equalTo(titleLb)
-            make.top.equalTo(titleLb.snp.bottom).offset(5*sizeScale)
+            make.top.equalTo(titleLb.snp.bottom).offset(10*sizeScale)
         }
     }
     

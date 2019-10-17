@@ -20,6 +20,7 @@
 		303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */; };
 		303A15B12358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */; };
 		303A15B3235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */; };
+		3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */; };
 		3099A39723541BED0055DB66 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39623541BED0055DB66 /* config.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
 		3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */; };
@@ -68,6 +69,7 @@
 		303A15AF23583F1C00979962 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
 		303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableFooterView.swift; sourceTree = "<group>"; };
+		3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentViewController.swift; sourceTree = "<group>"; };
 		3099A39623541BED0055DB66 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
 		3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				303A15A2235708F100979962 /* ArticleDetailViewController.swift */,
 				303A15A9235800A900979962 /* ArticlePastIssueViewController.swift */,
 				303A15AB235803F200979962 /* ArticleCatalogViewController.swift */,
+				3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				302D8D4D234DE2380001D856 /* File.swift in Sources */,
 				303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */,
 				30C161A0234DAA0800BC17F5 /* UIColorExtension.swift in Sources */,
+				3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */,
 				30C161AE234DAB8D00BC17F5 /* Global.swift in Sources */,
 				30C161BD234DABE600BC17F5 /* UBaseTableViewHeaderFooterView.swift in Sources */,
 				302D8D5C234F3A9C0001D856 /* MineViewController.swift in Sources */,
@@ -687,7 +691,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.MagazineReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqt.MagazineReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -707,7 +711,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.MagazineReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqt.MagazineReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
