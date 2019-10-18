@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		302D8D4D234DE2380001D856 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D4C234DE2380001D856 /* File.swift */; };
 		302D8D4F234DE25C0001D856 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D4E234DE25C0001D856 /* Model.swift */; };
-		302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D57234F3A800001D856 /* HomeViewController.swift */; };
 		302D8D5A234F3A8E0001D856 /* CateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D59234F3A8E0001D856 /* CateViewController.swift */; };
 		302D8D5C234F3A9C0001D856 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D5B234F3A9C0001D856 /* MineViewController.swift */; };
 		303A159F2356DB9D00979962 /* CatDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A159E2356DB9D00979962 /* CatDetailCell.swift */; };
@@ -20,6 +19,8 @@
 		303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */; };
 		303A15B12358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */; };
 		303A15B3235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */; };
+		303A15B5235950E400979962 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B4235950E400979962 /* BaseWebView.swift */; };
+		303A15CF2359888F00979962 /* AritclePage in Resources */ = {isa = PBXBuildFile; fileRef = 303A15CE2359888F00979962 /* AritclePage */; };
 		3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */; };
 		3099A39723541BED0055DB66 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39623541BED0055DB66 /* config.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
@@ -57,7 +58,6 @@
 /* Begin PBXFileReference section */
 		302D8D4C234DE2380001D856 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		302D8D4E234DE25C0001D856 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		302D8D57234F3A800001D856 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		302D8D59234F3A8E0001D856 /* CateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CateViewController.swift; sourceTree = "<group>"; };
 		302D8D5B234F3A9C0001D856 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		303A159E2356DB9D00979962 /* CatDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailCell.swift; sourceTree = "<group>"; };
@@ -69,6 +69,8 @@
 		303A15AF23583F1C00979962 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
 		303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableFooterView.swift; sourceTree = "<group>"; };
+		303A15B4235950E400979962 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
+		303A15CE2359888F00979962 /* AritclePage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AritclePage; sourceTree = "<group>"; };
 		3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentViewController.swift; sourceTree = "<group>"; };
 		3099A39623541BED0055DB66 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
@@ -119,15 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		302D8D50234F1E5D0001D856 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				302D8D54234F3A300001D856 /* View */,
-				302D8D53234F3A2A0001D856 /* ViewController */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		302D8D51234F1E670001D856 /* Cate */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,21 +137,6 @@
 				302D8D56234F3A420001D856 /* ViewController */,
 			);
 			path = Mine;
-			sourceTree = "<group>";
-		};
-		302D8D53234F3A2A0001D856 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				302D8D57234F3A800001D856 /* HomeViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		302D8D54234F3A300001D856 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		302D8D55234F3A380001D856 /* ViewController */ = {
@@ -236,6 +214,7 @@
 		30C161AB234DAA6400BC17F5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				303A15CE2359888F00979962 /* AritclePage */,
 				30C161AD234DAB8D00BC17F5 /* Global.swift */,
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
@@ -266,7 +245,6 @@
 			children = (
 				303A15A0235708AC00979962 /* Article */,
 				30D826D8235345D9000CFFFD /* Favourite */,
-				302D8D50234F1E5D0001D856 /* Home */,
 				302D8D51234F1E670001D856 /* Cate */,
 				302D8D52234F1E710001D856 /* Mine */,
 				30DE1A07234A616D000B4E63 /* AppDelegate.swift */,
@@ -291,6 +269,7 @@
 				30C161B4234DABE600BC17F5 /* UBaseCollectionViewCell.swift */,
 				30C161B5234DABE600BC17F5 /* UBaseTableViewCell.swift */,
 				30C161B6234DABE600BC17F5 /* UBaseCollectionReusableView.swift */,
+				303A15B4235950E400979962 /* BaseWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +432,7 @@
 			files = (
 				30DE1A14234A616E000B4E63 /* LaunchScreen.storyboard in Resources */,
 				30DE1A11234A616E000B4E63 /* Assets.xcassets in Resources */,
+				303A15CF2359888F00979962 /* AritclePage in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +489,6 @@
 				30D826DD235361A3000CFFFD /* CatCollectionViewSectionHeader.swift in Sources */,
 				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
 				3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */,
-				302D8D58234F3A800001D856 /* HomeViewController.swift in Sources */,
 				3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */,
 				3099A39723541BED0055DB66 /* config.swift in Sources */,
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
@@ -524,6 +503,7 @@
 				303A15AA235800A900979962 /* ArticlePastIssueViewController.swift in Sources */,
 				303A15A3235708F100979962 /* ArticleDetailViewController.swift in Sources */,
 				302D8D4D234DE2380001D856 /* File.swift in Sources */,
+				303A15B5235950E400979962 /* BaseWebView.swift in Sources */,
 				303A15AE235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift in Sources */,
 				30C161A0234DAA0800BC17F5 /* UIColorExtension.swift in Sources */,
 				3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */,

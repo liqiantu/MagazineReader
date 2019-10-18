@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WebKit
 
 class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     private lazy var collectionView: UICollectionView = {
         let cl = UICollectionViewFlowLayout.init()
         cl.minimumLineSpacing = 1
@@ -26,10 +27,12 @@ class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    override func configUI() {
 
+    }
+    
 }
 
 extension FavouriteViewController {

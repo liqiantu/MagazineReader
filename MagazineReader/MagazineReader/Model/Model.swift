@@ -69,7 +69,7 @@ struct articleModel: HandyJSON {
 
 // 文章内容
 
-struct NextArticle: HandyJSON {
+struct nextArticleModel: HandyJSON {
     var ArticleID: String = ""
     var Title: String = ""
 }
@@ -81,8 +81,17 @@ struct articleContentModel: HandyJSON {
     var Author: String = ""
     var Summary: String = ""
     var Content: String = ""
-    var PreviousArticle: NextArticle?
-    var NextArticle: NextArticle?
+    var PreviousArticle: nextArticleModel?
+    var NextArticle: nextArticleModel?
     var PageCount: Int = 0
     var Sequence:String = ""
+    var ImgList:[articleContentImagesModel]?
+}
+
+struct articleContentImagesModel {
+    var ImgName: String = ""
+    var Summary: String = ""
+    var Sort: String = ""
+    var ImgUrl: String = ""
+
 }

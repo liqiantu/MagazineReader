@@ -12,7 +12,7 @@ class ArticleCatalogCollectionReusableHeaderView: UBaseCollectionReusableView {
     private lazy var titleLb: UILabel = {
         let v = UILabel()
         v.font = UIFont.systemFont(ofSize: 20)
-        v.textColor = .purple
+        v.textColor = .black
         return v
     }()
     

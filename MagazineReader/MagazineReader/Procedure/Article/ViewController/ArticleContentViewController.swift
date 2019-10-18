@@ -19,11 +19,10 @@ class ArticleContentViewController: UBaseViewController {
     }
     
     override func configUI() {
-        
+
     }
     
     func loadData() {
-        // https://www.jianshu.com/p/09d1ebcbd2a0 ios串行请求方案
         ApiProvider.request(.getDetail(articleid: model!.ArticleID!), model: articleContentModel.self) { (res) in
             self.models.append(res!)
             print("count is \(res!.PageCount)")
@@ -46,10 +45,15 @@ class ArticleContentViewController: UBaseViewController {
                         _ = group.wait(timeout: DispatchTime.distantFuture)
                     }
                     group.notify(queue: DispatchQueue.global()) {
-                        print("models is \(self.models)")
+                        DispatchQueue.main.async {
+
+
+                        }
                     }
                 }
             }
         }
     }
+         
+    
 }
