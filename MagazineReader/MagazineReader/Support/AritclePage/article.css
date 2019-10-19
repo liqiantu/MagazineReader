@@ -1,0 +1,111 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {-webkit-user-select:auto !important;}
+.atr-header {box-shadow:0 0 5px #ccc;}
+.art-con {padding:0; width:100%; -webkit-transition:all ease .3s; -moz-transition:all ease .3s; transition:all ease .3s;}
+.art-con h5 {padding:40px 0 15px 20px; font-size:34px;}
+.art-list {padding:0; display:none; min-height:1136px; position:relative; z-index:999999999; background-color:#FFF;}
+.art-list-close {height:93px; width:100%; position:fixed; top:0; background:url(../images/article/close-list.png) center center no-repeat; background-color:#0B5889; border-bottom:1px solid #000;}
+
+.atr-share-top {height:88px; margin:50px 0 55px 0;}
+.atr-share-bottom {height:88px; margin:50px 0 0 0;}
+.atr-share-top ul,.atr-share-bottom ul {overflow:hidden; margin-left:-0.5%;}
+.atr-share-top ul li,.atr-share-bottom ul li {width:19.5%; height:88px; float:left; margin-left:0.5%;}
+.share-weibo {background:#D90000 url(../images/article/weibo.png) center center no-repeat;}
+.share-tencent {background:#21BBED url(../images/article/tencent.png) center center no-repeat;}
+.share-renren {background:#0058AE url(../images/article/renren.png) center center no-repeat;}
+.share-collect {background:#555555 url(../images/article/collect.png) center center no-repeat;}
+.share-link {background:#2DB200 url(../images/article/link.png) center center no-repeat;}
+
+.article-con {margin-top:-70px; color:#000; line-height:50px; -webkit-transition:all ease .3s; -moz-transition:all ease .3s; transition:all ease .3s;}
+.article-ym {width:86%; height:60px; margin:0 auto; margin-top:30px; border-bottom:2px solid #84909b; overflow:hidden;}
+.article-ym ul {font-size:24px; color:#83909a; line-height:60px;}
+.article-con footer {font-size:24px; text-align:right; padding-right:35px; margin:-15px 0 35px 0; color:#333;}
+.article-con h1 {font-weight:normal; font-size:60px; margin:50px 0 30px 0; padding:0 40px; font-weight:bold; color:#2b2b2b; line-height:75px; -webkit-transition:all ease .3s; -moz-transition:all ease .3s; transition:all ease .3s;}
+.article-con h2,.article-con h3,.article-con h4,.article-con h5 {font-weight:bold; font-size:36px; color:#000; padding:15px 40px;}
+.article-con span {font-size:26px; display:block; color:#8a8a83; margin: -10px 0 50px 0; padding:0 40px;}
+.article-con em {display:block; float:right; height:30px; padding-left:40px; margin:20px 40px 0 0; background:url(../images/article/edit-bg.png) no-repeat; font-size:28px; color:#878787; line-height:26px;}
+.article-con p {font-size:28px; text-indent:2em; margin-bottom:30px; color:#1f1e1d; padding:0 40px; line-height:44px;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.article-con p img {margin-left:-2em; width:100%;}
+.article-con br {line-height:75px;}
+.article-con img {width:100%; margin-top:-20px; border-radius:2px;}
+.article-con figure {margin:60px 0;}
+.article-con figure img {width:100%;}
+.article-con figure figcaption {display:block; font-size:24px; color:#8a8a8a; margin-bottom:30px; text-align:center; text-indent:0; padding:0 40px; line-height:38px;}
+<!--.article-con figure span {display:block; font-size:28px; line-height:40px; color:#000; margin-bottom:35px;}-->
+.article-con figure span {width:130px; display:block; height:1px; background:#ccc; margin:0 auto; line-height:0;}
+
+/*1011 tips*/
+.tips {width:100%; height:100%; background:RGBa(0,0,0,0.6);filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#70000000',endColorstr = '#70000000') \9 opacity:0.7; filter:alpha(opacity=70); position:fixed; top:0; left:0; z-index:10000000; display:none;}
+.tips-img1 {position:absolute; width:135px; height:173px; right:70px; top:10px;}
+.tips-img2 {position:absolute; width:400px; height:33px; top:210px; left:50%; margin-left:-200px;}
+.tips-img2-az {position:absolute; width:400px; height:44px; top:210px; left:50%; margin-left:-200px;}
+.tips-img3 {position:absolute; width:400px; height:41px; top:280px; left:50%; margin-left:-200px;}
+.tips-img4 {position:absolute; width:400px; height:46px; top:435px; left:50%; margin-left:-200px;}
+.tips-img5 {position:absolute; width:237px; height:93px; bottom:30px; left:50%; margin-left:-113.5px;}
+
+.H-share {width:40px; height:36px; position:absolute; top:25px; right:20px; background:url(../images/article/shareBtn.png) no-repeat 0 -37px;}
+.H-Font {width:54px; height:32px; position:absolute; top:25px; right:30px; background:url(../images/article/t-font.png) no-repeat 0 -33px;}
+.H-stow {width:44px; height:41px; position:absolute; top:20px; right:238px; background:url(../images/article/sc.png) 0 -41px no-repeat;}
+.H-DL {width:44px; height:41px; position:absolute; top:4px; right:20px;}
+.H-stow-choose{ background-position:0 0;}
+.h-cover {height:80px; width:100%; position:fixed; background:rgba(255,255,255,0.7); top:0; left:0; z-index:100; display:none;}
+
+/*上下一篇*/
+.atr-pre {padding:0 20px 50px 20px; font-size:32px; margin-top:20px;}
+.atr-pre ul {color:#383838;}
+.atr-pre ul li {margin-bottom:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.atr-pre ul li a {color:#0B5D91; padding-left:10px;}
+
+/*相关文章*/
+.aboutArt {padding:0 20px;}
+.aboutArt h3 {font-size:32px; font-weight:bold; color:#2a4e69;}
+.aboutArt ul {margin-top:10px}
+.aboutArt ul li {overflow:hidden; border-bottom:1px solid #f1f1f1; margin-top:28px; padding-bottom:30px;}
+.aboutArt ul li dl {float:left; width:80%;}
+.aboutArt ul li dl dd {font-size:32px; color:#2a4e69; height:86px; overflow:hidden; line-height:42px;}
+.aboutArt ul li dl dt {font-size:24px; color:#888; margin-top:15px;}
+.aboutArt ul li span {width:104px; height:140px; display:block; background:#f1f1f1; float:right;}
+.aboutArt ul li span img {width:104px; height:140px;}
+
+/*1110*/
+.collect-tips {height:64px; padding:0 30px; background:#000; position:fixed; left:50%; margin-left:-128px; bottom:60px; border-radius:10px; opacity:0.8; font-size:30px; color:#FFF; color:#FFF; line-height:64px; text-align:center; box-shadow:0 0 10px #000000; display:none;}
+
+/*Font&share*/
+.fontSet,.shareTip {height:auto; width:100%; position:fixed; top:80px; left:0; background:#28465f; z-index:1001; display:none;}
+.fontSet ul,.shareTip ul {color:#FFF; line-height:110px;}
+.fontSet ul li,.shareTip ul li {height:110px; border-bottom:1px solid #243f55; padding-left:8%; background:url(../images/article/font-choose.png) no-repeat; background-position:-100px center; -moz-transition:all ease .3s; -webkit-transition:all ease .3s; transition:all ease .3s;}
+.font-triangle {width:26px; height:26px; position:absolute; right:43px; top:-10px; background:#28465f; -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); transform:rotate(-45deg);}
+.share-triangle {width:20px; height:20px; position:absolute; right:32px; top:-10px; background:#28465f; -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); transform:rotate(-45deg);}
+.small {font-size:32px;}
+.fit {font-size:34px;}
+.big {font-size:36px;}
+.max {font-size:38px;}
+.f-s-cur {color:#ff6666; font-weight:bold; background-position:92% center !important;}
+
+.shareTip ul li i {display:block; float:left; font-style:normal; font-size:32px; padding-left:30px; height:110px; line-height:110px;}
+.QQ {display:block; width:52px; height:51px; margin-top:30px; float:left; background:url(../images/article/share-icon.png) no-repeat; background-position:6px 0;}
+.Zone {display:block; width:52px; height:51px; margin-top:30px; float:left; background:url(../images/article/share-icon.png) no-repeat; background-position:-46px 0;}
+.Weibo {display:block; width:52px; height:51px; margin-top:30px; float:left; background:url(../images/article/share-icon.png) no-repeat; background-position:-99px 0;}
+
+.download {position:fixed;
+	right:15px;
+	bottom:114px;
+	width:72px;
+	height:72px;
+	background:url(../images/article/tel.png) no-repeat;
+    border-radius:8px;
+	z-index:1000;}
+.download a {display:block; height:72px;}
+
+/*cover*/
+.pub-cover {width:100%; height:100%; position:fixed; background:rgba(0,0,0,0.3); top:0; left:0; z-index:10; display:none;}
+
+/*权限*/
+.purview {margin-top:80px;}
+.purview dl {text-align:center;}
+.purview dl dd {color:#483939; font-size:34px; font-weight:bold;}
+.purview dl dt {font-size:24px; margin-top:5px;}
+.purview dl dt a{display:inline; width:auto; height:auto; background:none; color:#469eea; font-size:24px; border-radius:0; margin:0;line-height:0; text-decoration:underline;}
+.purview a {display:block; width:80%; height:86px; background:#469eea; color:#FFF; font-size:34px; border-radius:8px; margin:0 auto; margin-top:30px; line-height:86px;}
