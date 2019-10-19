@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8" content="width=640,target-densitydpi=device-dpi,user-scalable=no" name="viewport"
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
@@ -7,4 +8,16 @@
         <div id="main">
         </div>
     </body>
+
+    <script>
+    function reloadData(data) {
+
+        var n = document.getElementById("main")
+        data.forEach(d => {
+            n.innerHTML += d.Content;
+        });
+        
+        return "ok";
+    }
+    </script>
 </html>

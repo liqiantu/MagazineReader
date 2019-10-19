@@ -9,11 +9,7 @@
 import UIKit
 import WebKit
 
-class BaseWebView: WKWebView {
-
-}
-
-extension BaseWebView {
+extension WKWebView {
     func loadLocalResource() {
         let url = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "AritclePage")!
         self.loadFileURL(url, allowingReadAccessTo: url)

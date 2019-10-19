@@ -56,6 +56,7 @@ class ArticleDetailViewController: UBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = self.model?.MagazineName
         self.navigationController?.navigationBar.isTranslucent = false
         view.addSubview(self.pagingView)
         categoryView.contentScrollView = pagingView.listContainerView.collectionView
@@ -67,20 +68,26 @@ class ArticleDetailViewController: UBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (categoryView.selectedIndex == 0)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
         pagingView.frame = self.view.bounds
+    }
+    
+    func loadData() {
+        guard let m = self.model else {
+            return
+        }
+        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
+            设置header model
+        }
     }
 }
 
