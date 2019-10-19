@@ -87,6 +87,12 @@ extension CatDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140*sizeScale
+        return 130*sizeScale
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ArticleDetailViewController()
+        vc.model = self.modelArr[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -35,6 +35,12 @@ class ArticleCatalogHeaderView: UIView {
         cw.layer.borderColor = UIColor.white.cgColor
         return cw
     }()
+    
+    private lazy var releaseDateLb: UILabel = {
+        let lb = UILabel.init()
+        lb.textColor = .white
+        return lb
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,8 +66,14 @@ class ArticleCatalogHeaderView: UIView {
         backImageView.addSubview(coverView)
         coverView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize.init(width: 80, height: 150))
+            make.top.equalToSuperview().offset(5*sizeScale)
+            make.size.equalTo(CGSize.init(width: 120*sizeScale, height: 150*sizeScale))
+        }
+        
+        backImageView.addSubview(releaseDateLb)
+        releaseDateLb.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(coverView.snp.bottom).offset(10*sizeScale)
         }
     }
 
@@ -82,9 +94,11 @@ class ArticleCatalogHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var model: articleModel? {
+    public var model: magazinDescrModel? {
         didSet {
-            
+            backImageView.kf.setImage(with: URL.init(string: (model?.CoverImages![2])!))
+            coverView.kf.setImage(with: URL.init(string: (model?.CoverImages![2])!))
+            releaseDateLb.text = "\(model!.Year)年\(model!.Issue)期"
         }
     }
 }

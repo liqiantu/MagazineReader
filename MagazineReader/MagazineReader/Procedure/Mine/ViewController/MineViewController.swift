@@ -14,20 +14,6 @@ class MineViewController: UBaseViewController {
     
     private lazy var mineArr: Array = [
         "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存",
-        "清理缓存"
-
     ]
     
     private lazy var tableView: UITableView = {
@@ -35,6 +21,7 @@ class MineViewController: UBaseViewController {
         tw.backgroundColor = UIColor.background
         tw.delegate = self
         tw.dataSource = self
+        tw.tableFooterView = UIView()
         tw.register(cellType: UBaseTableViewCell.self)
         return tw
     }()

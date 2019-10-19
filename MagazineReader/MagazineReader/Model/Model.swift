@@ -77,8 +77,11 @@ struct nextArticleModel: HandyJSON {
 struct articleContentModel: HandyJSON {
     var ArticleID: String = ""
     var Title: String = ""
+    var MagazineName: String = ""
     var SubTitle: String = ""
     var Author: String = ""
+    var Year: String = ""
+    var Issue: String = ""
     var Summary: String = ""
     var Content: String = ""
     var PreviousArticle: nextArticleModel?

@@ -46,6 +46,7 @@ class ArticleDetailViewController: UBaseViewController {
     
     lazy var header: ArticleCatalogHeaderView = {
         let h = ArticleCatalogHeaderView.init(frame: CGRect.zero)
+        h.model = self.model
         return h
     }()
     
@@ -81,14 +82,15 @@ class ArticleDetailViewController: UBaseViewController {
         pagingView.frame = self.view.bounds
     }
     
-    func loadData() {
-        guard let m = self.model else {
-            return
-        }
-        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
-            设置header model
-        }
-    }
+//    func loadData() {
+//        guard let m = self.model else {
+//            return
+//        }
+//
+//        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid!, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
+//            self.magazineIssueModel = res
+//        }
+//    }
 }
 
 extension ArticleDetailViewController: JXCategoryViewDelegate {

@@ -1,23 +1,165 @@
-<html>
+<!doctype html>
+<html lang="zh-cn">
     <head>
-        <meta charset="UTF-8" content="width=640,target-densitydpi=device-dpi,user-scalable=no" name="viewport"
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="UTF-8" content="width=640,target-densitydpi=device-dpi,user-scalable=no" name="viewport">
+        <title></title>
+        <link rel="stylesheet" href="public.css">
+        <link rel="stylesheet" href="article.css">
+        <script src="jquery-1.7.2.js" type="text/javascript"></script>
     </head>
 
     <body>
-        <div id="main">
-        </div>
+        <article class="art-con">	
+            <!--atr s-->
+            <section class="article-con">
+                <div class="article-ym">
+                    <ul>
+                        <li class="fl"></li>
+                        <li class="fr"></li>
+                    </ul>
+                </div>
+                <h1><!--标题--></h1>
+                <span><!--马昌博--></span>
+                <div class="content">
+                    <!--<p>正文</p>-->
+                </div>
+            </section>
+        </article>   
     </body>
 
-    <script>
-    function reloadData(data) {
+    <script type="text/javascript">
+        function reloadData(values) {
+            var value = values[0]
+            // return value
+            // $("title").prepend(value.Title + '-');
+            $(".fl").html(value.MagazineName);
+            $(".fr").html(value.Year + "年" + value.Issue + "期");
+            $(".article-con>h1:eq(0)").html(value.Title);
+            $(".article-con>span:eq(0)").html(value.Author);
+            values.forEach(value => {
+                $(".content").append(value.Content);
+            });
+        }
 
-        var n = document.getElementById("main")
-        data.forEach(d => {
-            n.innerHTML += d.Content;
-        });
-        
-        return "ok";
-    }
+        // var page = 1;
+        // var finished = 0;
+        // var sover = 0;
+        // var countPage = 0;
+        // //文章标题ID
+        // var articleid = getQueryString("articleid");
+        // getData(articleid);
+        // function getData(articleid) {
+        //     //选择字体
+        //     var font = getQueryString("font");
+        //     $.ajax({
+        //         url: "/api/magazine/article/GetDetail?articleid=" + articleid,
+        //         type: "get",
+        //         dataType: "json",
+        //         success: function (e) {
+        //             if (e.Code == 1 && e.Data != null) {
+        //                 if (countPage <= 0) {
+        //                     countPage = e.Data.PageCount;
+        //                 }
+        //                 $(e.Data).each(function (k, value) {
+        //                     $("title").prepend(value.Title + '-');
+        //                     $(".fl").html(value.MagazineName);
+        //                     $(".fr").html(value.Year + "年" + value.Issue + "期");
+        //                     $(".article-con>h1:eq(0)").html(value.Title);
+        //                     $(".article-con>span:eq(0)").html(value.Author);
+        //                     $(".content").append(value.Content);
+        //                     //上一篇文章
+        //                     $(value.PreviousArticle).each(function (p, prev) {
+        //                         if (prev.ArticleID != "") {
+        //                             $(".atr-pre>ul").find("li:eq(0)").html("上一篇<a href=\"content.html?articleid=" + prev.ArticleID + "\">" + prev.Title + "</a>");
+        //                         }
+        //                     });
+        //                     //下一篇文章
+        //                     $(value.NextArticle).each(function (n, next) {
+        //                         if (next.ArticleID != "") {
+        //                             $(".atr-pre>ul").find("li:eq(1)").html("下一篇<a href=\"content.html?articleid=" + next.ArticleID + "\">" + next.Title + "</a>");
+        //                         }
+        //                     });
+        //                 });
+        //                 $(".H-Back>a").attr("href", "detail.html?magazineguid=" + e.Data.MagazineGuid + "&year=" + e.Data.Year + "&issue=" + e.Data.Issue);
+        //                 //设置字体
+        //                 if (font != null && font != undefined && font != "") {
+        //                     $(".atr-pre>ul").find("li:eq(0)").find("a").attr("href", $(".atr-pre>ul").find("li:eq(0)").find("a").attr("href") + "&font=" + font);
+        //                     $(".atr-pre>ul").find("li:eq(1)").find("a").attr("href", $(".atr-pre>ul").find("li:eq(1)").find("a").attr("href") + "&font=" + font);
+        //                     setTimeout(function () {
+        //                         $("." + font).addClass("f-s-cur").siblings().removeClass("f-s-cur");
+        //                         switch (font) {
+        //                             case "small":
+        //                                 $(".article-con p,.article-con-M p").css({ "fontSize": "24px", "lineHeight": "40px", "padding": "0 40px 0 40px" });
+        //                                 $(".article-con h2,.article-con h3,.article-con h4,.article-con h5").css("fontSize", "33px");
+        //                                 $(".article-con p br").css("lineHeight", "65px");
+        //                                 break;
+        //                             case "fit":
+        //                                 $(".article-con p,.article-con-M p").css({ "fontSize": "28px", "lineHeight": "44px", "padding": "0 40px 0 40px" });
+        //                                 $(".article-con h2,.article-con h3,.article-con h4,.article-con h5").css("fontSize", "37px");
+        //                                 $(".article-con p br").css("lineHeight", "75px");
+        //                                 break;
+        //                             case "big":
+        //                                 $(".article-con p,.article-con-M p").css({ "fontSize": "32px", "lineHeight": "50px", "padding": "0 40px 0 40px" });
+        //                                 $(".article-con h2,.article-con h3,.article-con h4,.article-con h5").css("fontSize", "41px");
+        //                                 $(".article-con p br").css("lineHeight", "85px");
+        //                                 break;
+        //                             case "max":
+        //                                 $(".article-con p,.article-con-M p").css({ "fontSize": "36px", "lineHeight": "54px", "padding": "0 40px 0 40px" });
+        //                                 $(".article-con h2,.article-con h3,.article-con h4,.article-con h5").css("fontSize", "45px");
+        //                                 $(".article-con p br").css("lineHeight", "95px");
+        //                                 break;
+        //                             default:
+        //                                 $(".article-con p,.article-con-M p").css({ "fontSize": "28px", "lineHeight": "44px", "padding": "0 40px 0 40px" });
+        //                                 $(".article-con h2,.article-con h3,.article-con h4,.article-con h5").css("fontSize", "37px");
+        //                                 $(".article-con p br").css("lineHeight", "75px");
+        //                                 break;
+        //                         }
+        //                         $(".loading").hide();
+        //                     }, 300);
+        //                 } else {
+        //                     $(".loading").hide();
+        //                 }
+        //             }
+        //         },
+        //         error: function (e, b, c) {
+        //             alert('error' + c);
+        //         }
+        //     });
+        // }    
+    
+        //  加载完
+        //  function loadover() {
+        //      if (sover == 1) {
+        //          $(".loading").hide();
+        //      }
+        //  }
+
+        //  加载更多
+        //  var vid = 0;
+        //  function loadmore(obj) {
+
+        //      if (finished == 0 && sover == 0) {
+        //          var scrollTop = $(obj).scrollTop();
+        //          var scrollHeight = $(document).height();
+        //          var windowHeight = $(obj).height();
+                 
+        //          $(".loading").show();
+                 
+        //          if (scrollTop + windowHeight + 2000 >= scrollHeight) {
+        //              //此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
+        //              //防止未加载完再次执行
+        //              finished = 1;
+        //              page += 1;
+        //              //最后一页                           
+        //              if ((page - 1) >= (countPage)) {
+        //                  sover = 1;
+        //                  loadover();
+        //              } else {
+        //                  getData(articleid + "-" + (page - 1));
+        //                  finished = 0;
+        //              }                       
+        //          }
+        //      }
+        //  }
     </script>
 </html>

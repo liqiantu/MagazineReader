@@ -80,7 +80,14 @@ extension ArticleCatalogViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: screenWidth, height: 60*sizeScale)
+        var h: CGFloat = 0
+        let model = catalogModels[indexPath.section].Articles![indexPath.row]
+        if model.Author.isEmpty {
+            h = 45*sizeScale
+        }else {
+            h = 55*sizeScale
+        }
+        return CGSize.init(width: screenWidth, height: h)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
