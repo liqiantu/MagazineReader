@@ -54,7 +54,7 @@ class ArticleDetailViewController: UBaseViewController {
     
     var titles = ["目录", "往期"] // 目录 详情 简介 cell 两种展示模式
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
-    var tableHeaderViewHeight: Int = Int(250*sizeScale)
+    var tableHeaderViewHeight: Int = Int(225*sizeScale)
     var headerInSectionHeight: Int = 50
 
     override func viewDidLoad() {
@@ -69,8 +69,10 @@ class ArticleDetailViewController: UBaseViewController {
         pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
         pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
         
-        if let isLast = self.isLastIssue {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "收藏", target: self, action: #selector(addFavourite))
+        if self.isLastIssue == nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "添加收藏", target: self, action: #selector(addFavourite))
+        }else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "取消收藏", target: self, action: #selector(removeFavourite))
         }
     }
     
@@ -90,6 +92,10 @@ class ArticleDetailViewController: UBaseViewController {
     }
     
     @objc func addFavourite() {
+        
+    }
+    
+    @objc func removeFavourite() {
         
     }
     

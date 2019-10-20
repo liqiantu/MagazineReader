@@ -12,7 +12,6 @@ import WebKit
 class ArticleContentViewController: UBaseViewController {
     private var fontSize = configFontSize
 
-    
     private lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration.init()
         let wv = WKWebView.init(frame: CGRect.zero, configuration: config)

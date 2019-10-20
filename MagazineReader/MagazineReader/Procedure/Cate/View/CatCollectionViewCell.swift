@@ -17,9 +17,6 @@ class CatCollectionViewCell: UBaseCollectionViewCell {
     }()
     
     override func configUI() {
-        let url = URL.init(string: "http://img1.qikan.com/qkimages/duzh/duzh201921-l.jpg")
-        coverImgV.kf.setImage(with: url)
-        
         contentView.addSubview(coverImgV)
         coverImgV.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -31,7 +28,6 @@ class CatCollectionViewCell: UBaseCollectionViewCell {
             guard let m = model else {
                 return
             }
-            
             coverImgV.kf.setImage(with: URL.init(string: m.CoverImages![2]))
         }
     }

@@ -11,7 +11,7 @@ import UIKit
 class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
     private lazy var titleLb: UILabel = {
         let v = UILabel.init()
-        v.textColor = .blue
+        v.textColor = .black
         return v
     }()
     

@@ -11,7 +11,7 @@ import UIKit
 class ArticleCatalogCollectionReusableHeaderView: UBaseCollectionReusableView {
     private lazy var titleLb: UILabel = {
         let v = UILabel()
-        v.font = UIFont.systemFont(ofSize: 20)
+        v.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
         v.textColor = .black
         return v
     }()

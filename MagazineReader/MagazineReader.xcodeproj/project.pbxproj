@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301E1100235CA64600C80825 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E10FF235CA64600C80825 /* FavouriteCollectionViewCell.swift */; };
 		302D8D4D234DE2380001D856 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D4C234DE2380001D856 /* File.swift */; };
 		302D8D4F234DE25C0001D856 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D4E234DE25C0001D856 /* Model.swift */; };
 		302D8D5A234F3A8E0001D856 /* CateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8D59234F3A8E0001D856 /* CateViewController.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301E10FF235CA64600C80825 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		302D8D4C234DE2380001D856 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		302D8D4E234DE25C0001D856 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		302D8D59234F3A8E0001D856 /* CateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CateViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301E10FC235CA52F00C80825 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				301E10FF235CA64600C80825 /* FavouriteCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		302D8D51234F1E670001D856 /* Cate */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +317,7 @@
 		30D826D8235345D9000CFFFD /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
+				301E10FC235CA52F00C80825 /* View */,
 				30D826D9235345F8000CFFFD /* ViewController */,
 			);
 			path = Favourite;
@@ -527,6 +538,7 @@
 				30C161A3234DAA0800BC17F5 /* UIDeviceExtension.swift in Sources */,
 				302D8D4F234DE25C0001D856 /* Model.swift in Sources */,
 				30C161C0234DABE600BC17F5 /* UBaseCollectionReusableView.swift in Sources */,
+				301E1100235CA64600C80825 /* FavouriteCollectionViewCell.swift in Sources */,
 				30C161A5234DAA0800BC17F5 /* DispatchQueueExtension.swift in Sources */,
 				303A15A8235717E100979962 /* ArticleCatalogHeaderView.swift in Sources */,
 				30C161C2234DABE600BC17F5 /* UBaseViewController.swift in Sources */,
