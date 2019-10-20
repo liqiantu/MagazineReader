@@ -13,6 +13,8 @@ import JXCategoryView
 class ArticleDetailViewController: UBaseViewController {
     public var model: magazinDescrModel?
     
+    public var isLastIssue: Bool?
+    
     lazy var categoryView: JXCategoryTitleView = {
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: CGFloat(headerInSectionHeight)))
         categoryView.titles = titles
@@ -52,19 +54,24 @@ class ArticleDetailViewController: UBaseViewController {
     
     var titles = ["目录", "往期"] // 目录 详情 简介 cell 两种展示模式
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
-    var tableHeaderViewHeight: Int = 250
+    var tableHeaderViewHeight: Int = Int(250*sizeScale)
     var headerInSectionHeight: Int = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = self.model?.MagazineName
         self.navigationController?.navigationBar.isTranslucent = false
+        
         view.addSubview(self.pagingView)
         categoryView.contentScrollView = pagingView.listContainerView.collectionView
-
         //扣边返回处理，下面的代码要加上
         pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
         pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        
+        if let isLast = self.isLastIssue {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "收藏", target: self, action: #selector(addFavourite))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +87,10 @@ class ArticleDetailViewController: UBaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView.frame = self.view.bounds
+    }
+    
+    @objc func addFavourite() {
+        
     }
     
 //    func loadData() {

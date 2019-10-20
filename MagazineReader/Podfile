@@ -11,7 +11,6 @@ target 'MagazineReader' do
   pod 'SnapKit'
   pod 'HandyJSON'
   pod 'Kingfisher'
-  pod 'LLCycleScrollView'
   pod 'MJRefresh'
   pod 'Reusable'
   pod 'Then'
@@ -20,6 +19,7 @@ target 'MagazineReader' do
   pod 'EmptyDataSet-Swift'
   pod 'JXPagingView/Paging'
   pod 'JXCategoryView'
+  pod 'YYCache'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 

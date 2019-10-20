@@ -58,7 +58,7 @@ class CatDetailViewController: UBaseViewController {
             }
         }
                 
-        ApiLoadingProvider.requestPageInfo(.getMagazineByCategoryWithPage(categorycode: cCode, pagesize: pageSize, pageindex: pageIndex), model: [magazinDescrModel].self) { (result) in
+        ApiProvider.requestPageInfo(.getMagazineByCategoryWithPage(categorycode: cCode, pagesize: pageSize, pageindex: pageIndex), model: [magazinDescrModel].self) { (result) in
             guard let model = result else { return }
             self.pageTotal = model.PageTotal
             if more {

@@ -10,6 +10,8 @@ import UIKit
 import WebKit
 
 class ArticleContentViewController: UBaseViewController {
+    private var fontSize = configFontSize
+
     
     private lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration.init()
@@ -28,6 +30,30 @@ class ArticleContentViewController: UBaseViewController {
         super.viewDidLoad()
         title = self.model?.Title
         navigationController?.hidesBarsOnSwipe = true
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem.init(title: "加大", style: UIBarButtonItem.Style.plain, target: self, action: #selector(plus)),
+            UIBarButtonItem.init(title: "减小", style: UIBarButtonItem.Style.plain, target: self, action: #selector(reduce))
+        ]
+    }
+    
+    @objc func plus() {
+        fontSize += 10
+        UserDefaults.standard.set(fontSize, forKey: "PageSize")
+        let js = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(fontSize)%'"
+        webView.evaluateJavaScript(js) { (res, err) in
+            print("res is \(String(describing: res))")
+            print("err is \(String(describing: err))")
+        }
+    }
+    
+    @objc func reduce() {
+        fontSize -= 10
+        UserDefaults.standard.set(fontSize, forKey: "PageSize")
+        let js = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(fontSize)%'"
+        webView.evaluateJavaScript(js) { (res, err) in
+            print("res is \(String(describing: res))")
+            print("err is \(String(describing: err))")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,9 +71,9 @@ class ArticleContentViewController: UBaseViewController {
     func loadData() {
         ApiProvider.request(.getDetail(articleid: model!.ArticleID!), model: articleContentModel.self) { (res) in
             self.models.append(res!)
-            print("count is \(res!.PageCount)")
+//            print("count is \(res!.PageCount)")
             let count = res!.PageCount - 1
-            print(self.models)
+//            print(self.models)
             self.injectData()
             
             if count > 0 {
@@ -69,7 +95,7 @@ class ArticleContentViewController: UBaseViewController {
                     }
                     group.notify(queue: DispatchQueue.global()) {
                         DispatchQueue.main.async {
-                            print(self.models)
+//                            print(self.models)
                             self.injectData()
                         }
                     }
@@ -84,9 +110,15 @@ class ArticleContentViewController: UBaseViewController {
         let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8)
         guard let js = jsonStr else { return }
         
-        self.webView.evaluateJavaScript("reloadData(\(js))") { (res, err) in
+        let adjustFontJs = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(self.fontSize)%'"
+        self.webView.evaluateJavaScript(adjustFontJs) { (res, err) in
             print("res is \(String(describing: res))")
             print("err is \(String(describing: err))")
+            
+            self.webView.evaluateJavaScript("reloadData(\(js))") { (res, err) in
+                print("res is \(String(describing: res))")
+                print("err is \(String(describing: err))")
+            }
         }
     }
 }
@@ -104,7 +136,7 @@ extension ArticleContentViewController: UIScrollViewDelegate {
         let velocity = pan.velocity(in: scrollView).y
         if velocity < -5 {
             self.navigationController?.setNavigationBarHidden(true,animated:true)
-        }else if velocity > 5 {
+        }else if velocity > 10 {
             self.navigationController?.setNavigationBarHidden(false,animated:true)
         }
     }

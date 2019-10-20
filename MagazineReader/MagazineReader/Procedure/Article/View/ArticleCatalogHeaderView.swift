@@ -30,9 +30,6 @@ class ArticleCatalogHeaderView: UIView {
     private lazy var coverView: UIImageView = {
         let cw = UIImageView()
         cw.contentMode = .scaleAspectFill
-        cw.layer.cornerRadius = 3
-        cw.layer.borderWidth = 1
-        cw.layer.borderColor = UIColor.white.cgColor
         return cw
     }()
     

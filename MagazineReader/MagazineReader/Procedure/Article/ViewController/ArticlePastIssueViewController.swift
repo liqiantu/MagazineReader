@@ -71,6 +71,12 @@ extension ArticlePastIssueViewController: UITableViewDelegate, UITableViewDataSo
         return 140*sizeScale
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ArticleDetailViewController()
+        vc.model = self.modelArr[indexPath.row]
+        navVc?.pushViewController(vc, animated: true)
+    }
+    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.listViewDidScrollCallback?(scrollView)
     }

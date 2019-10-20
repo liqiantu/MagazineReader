@@ -17,7 +17,7 @@ class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
     
     private lazy var authorLb: UILabel = {
         let v = UILabel.init()
-        v.font = UIFont.systemFont(ofSize: 12*sizeScale)
+        v.font = UIFont.systemFont(ofSize: 12)
         v.textColor = UIColor.lightGray
         return v
     }()
