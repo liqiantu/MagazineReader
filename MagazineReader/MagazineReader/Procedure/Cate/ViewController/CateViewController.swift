@@ -58,7 +58,7 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
             self.models.removeAll()
         }
         
-        ApiLoadingProvider.request(.getAllCategory, model: [categoryModel].self) {  (categoryModels) in
+        ApiProvider.request(.getAllCategory, model: [categoryModel].self) {  (categoryModels) in
             let group = DispatchGroup()
             categoryModels?.forEach({ (categoryModel) in
                 guard let code = categoryModel.CategoryCode else {
@@ -112,6 +112,7 @@ extension CateViewController {
             header.model = m
             header.moreActionCLosure = { [weak self] in
                 let detailVC = CatDetailViewController.init()
+                detailVC.title = m?.CategoryName
                 detailVC.categorycode = m?.CategoryCode
                 self?.navigationController?.pushViewController(detailVC, animated: true)
             }
@@ -129,6 +130,7 @@ extension CateViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ArticleDetailViewController()
         vc.model = models[indexPath.section].bodyModel![indexPath.row]
+        vc.isLastIssue = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

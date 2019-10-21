@@ -11,7 +11,7 @@ import WebKit
 
 class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
+    private var modles: [favCacheModel] = []
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout.init()
@@ -30,6 +30,7 @@ class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func configUI() {
@@ -38,12 +39,11 @@ class FavouriteViewController: UBaseViewController, UICollectionViewDelegate, UI
             make.edges.equalTo(view.usnp.edges)
         }
     }
-    
 }
 
 extension FavouriteViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return modles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,9 +52,4 @@ extension FavouriteViewController {
     }
 }
 
-fileprivate struct favourModel {
-    var ArticleID: String = ""
-    var MagazineName: String = ""
-    var Year: String = ""
-    var Issue: String = ""
-}
+

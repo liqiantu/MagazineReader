@@ -12,10 +12,9 @@ import JXCategoryView
 
 class ArticleDetailViewController: UBaseViewController {
     public var model: magazinDescrModel?
-    
     public var isLastIssue: Bool?
     
-    lazy var categoryView: JXCategoryTitleView = {
+    private lazy var categoryView: JXCategoryTitleView = {
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: CGFloat(headerInSectionHeight)))
         categoryView.titles = titles
         categoryView.backgroundColor = UIColor.white
@@ -56,7 +55,7 @@ class ArticleDetailViewController: UBaseViewController {
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
     var tableHeaderViewHeight: Int = Int(225*sizeScale)
     var headerInSectionHeight: Int = 50
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,10 +68,11 @@ class ArticleDetailViewController: UBaseViewController {
         pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
         pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
         
-        if self.isLastIssue == nil {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "添加收藏", target: self, action: #selector(addFavourite))
-        }else {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "取消收藏", target: self, action: #selector(removeFavourite))
+        if let islast = self.isLastIssue {
+            if islast {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
+            }
         }
     }
     
@@ -80,12 +80,12 @@ class ArticleDetailViewController: UBaseViewController {
         super.viewDidAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (categoryView.selectedIndex == 0)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView.frame = self.view.bounds
@@ -99,22 +99,22 @@ class ArticleDetailViewController: UBaseViewController {
         
     }
     
-//    func loadData() {
-//        guard let m = self.model else {
-//            return
-//        }
-//
-//        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid!, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
-//            self.magazineIssueModel = res
-//        }
-//    }
+    //    func loadData() {
+    //        guard let m = self.model else {
+    //            return
+    //        }
+    //
+    //        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid!, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
+    //            self.magazineIssueModel = res
+    //        }
+    //    }
 }
 
 extension ArticleDetailViewController: JXCategoryViewDelegate {
     func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (index == 0)
     }
-
+    
     func categoryView(_ categoryView: JXCategoryBaseView!, didClickedItemContentScrollViewTransitionTo index: Int){
         //请务必实现该方法
         //因为底层触发列表加载是在代理方法：`- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath`回调里面
@@ -122,17 +122,17 @@ extension ArticleDetailViewController: JXCategoryViewDelegate {
         //如此一来就丧失了延迟加载的功能
         //所以，如果你想规避这样的情况发生，那么务必按照这里的方法处理滚动。
         self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
-
-
+        
+        
         //如果你想相邻的两个item切换时，通过有动画滚动实现。未相邻的两个item直接切换，可以用下面这段代码
         /*
-        let diffIndex = abs(categoryView.selectedIndex - index)
-        if diffIndex > 1 {
-            self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
-        }else {
-            self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
-        }
-        */
+         let diffIndex = abs(categoryView.selectedIndex - index)
+         if diffIndex > 1 {
+         self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
+         }else {
+         self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+         }
+         */
     }
 }
 
@@ -140,23 +140,23 @@ extension ArticleDetailViewController: JXPagingViewDelegate {
     func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int {
         return tableHeaderViewHeight
     }
-
+    
     func tableHeaderView(in pagingView: JXPagingView) -> UIView {
         return header
     }
-
+    
     func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int {
         return headerInSectionHeight
     }
-
+    
     func viewForPinSectionHeader(in pagingView: JXPagingView) -> UIView {
         return categoryView
     }
-
+    
     func numberOfLists(in pagingView: JXPagingView) -> Int {
         return titles.count
     }
-
+    
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {        
         if index == 0 {
             let vc = ArticleCatalogViewController()

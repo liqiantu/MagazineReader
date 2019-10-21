@@ -23,7 +23,6 @@
 		303A15B5235950E400979962 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B4235950E400979962 /* BaseWebView.swift */; };
 		303C6851235B642700D9E48C /* AritclePage in Resources */ = {isa = PBXBuildFile; fileRef = 303C6850235B642700D9E48C /* AritclePage */; };
 		3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */; };
-		3099A39723541BED0055DB66 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39623541BED0055DB66 /* Config.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
 		3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */; };
 		30C1619F234DAA0800BC17F5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C16196234DAA0700BC17F5 /* ArrayExtensions.swift */; };
@@ -74,7 +73,6 @@
 		303A15B4235950E400979962 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		303C6850235B642700D9E48C /* AritclePage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AritclePage; sourceTree = "<group>"; };
 		3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentViewController.swift; sourceTree = "<group>"; };
-		3099A39623541BED0055DB66 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
 		3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
 		30C16196234DAA0700BC17F5 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			children = (
 				303C6850235B642700D9E48C /* AritclePage */,
 				30C161AD234DAB8D00BC17F5 /* Global.swift */,
-				3099A39623541BED0055DB66 /* Config.swift */,
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
 				30DE1A15234A616E000B4E63 /* Info.plist */,
@@ -509,7 +506,6 @@
 				30D6585923504756008516A6 /* CatCollectionViewCell.swift in Sources */,
 				3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */,
 				3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */,
-				3099A39723541BED0055DB66 /* Config.swift in Sources */,
 				30C161BF234DABE600BC17F5 /* UBaseTableViewCell.swift in Sources */,
 				30C161A4234DAA0800BC17F5 /* UIImageExtensions.swift in Sources */,
 				30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */,

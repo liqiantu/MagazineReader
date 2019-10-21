@@ -93,6 +93,7 @@ extension CatDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ArticleDetailViewController()
         vc.model = self.modelArr[indexPath.row]
+        vc.isLastIssue = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

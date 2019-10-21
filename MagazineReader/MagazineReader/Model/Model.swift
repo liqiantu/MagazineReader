@@ -98,3 +98,13 @@ struct articleContentImagesModel {
     var ImgUrl: String = ""
 
 }
+
+
+// ------------------------- cacheModel -------------------------
+
+struct favCacheModel {
+    var ArticleID: String = ""
+    var MagazineName: String = ""
+    var Year: String = ""
+    var Issue: String = ""
+}
