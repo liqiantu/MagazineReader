@@ -29,7 +29,7 @@ class ArticleCatalogHeaderView: UIView {
 
     private lazy var coverView: UIImageView = {
         let cw = UIImageView()
-        cw.contentMode = .scaleAspectFill
+        cw.contentMode = .scaleAspectFit
         return cw
     }()
     
@@ -64,7 +64,7 @@ class ArticleCatalogHeaderView: UIView {
         coverView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(5*sizeScale)
-            make.size.equalTo(CGSize.init(width: 120*sizeScale, height: 150*sizeScale))
+            make.size.equalTo(CGSize.init(width: screenWidth, height: 300*sizeScale))
         }
         
         backImageView.addSubview(releaseDateLb)
@@ -94,7 +94,7 @@ class ArticleCatalogHeaderView: UIView {
     public var model: magazinDescrModel? {
         didSet {
             backImageView.kf.setImage(with: URL.init(string: (model?.CoverImages![2])!))
-            coverView.kf.setImage(with: URL.init(string: (model?.CoverImages![2])!))
+            coverView.kf.setImage(with: URL.init(string: (model?.CoverImages![3])!))
             releaseDateLb.text = "\(model!.Year)年\(model!.Issue)期"
         }
     }

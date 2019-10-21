@@ -68,13 +68,10 @@ class ArticleContentViewController: UBaseViewController {
     }
     
     func loadData() {
-        ApiProvider.request(.getDetail(articleid: model!.ArticleID!), model: articleContentModel.self) { (res) in
-            self.models.append(res!)
-//            print("count is \(res!.PageCount)")
-            let count = res!.PageCount - 1
-//            print(self.models)
-            self.injectData()
-            
+        ApiLoadingProvider.request(.getDetail(articleid: model!.ArticleID!), model: articleContentModel.self) { (result) in
+            guard let res = result else { return }
+            self.models.append(res)
+            let count = res.PageCount - 1
             if count > 0 {
                 var articleidArr = [String]()
                 for index in 1...count {
@@ -99,6 +96,8 @@ class ArticleContentViewController: UBaseViewController {
                         }
                     }
                 }
+            }else {
+                self.injectData()
             }
         }
     }
@@ -130,13 +129,13 @@ extension ArticleContentViewController: WKNavigationDelegate {
 }
 
 extension ArticleContentViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pan = scrollView.panGestureRecognizer
-        let velocity = pan.velocity(in: scrollView).y
-        if velocity < -10 {
-            self.navigationController?.setNavigationBarHidden(true,animated:true)
-        }else if velocity > 10 {
-            self.navigationController?.setNavigationBarHidden(false,animated:true)
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let pan = scrollView.panGestureRecognizer
+//        let velocity = pan.velocity(in: scrollView).y
+//        if velocity < -5 {
+//            self.navigationController?.setNavigationBarHidden(true,animated:true)
+//        }else if velocity > 5 {
+//            self.navigationController?.setNavigationBarHidden(false,animated:true)
+//        }
+//    }
 }

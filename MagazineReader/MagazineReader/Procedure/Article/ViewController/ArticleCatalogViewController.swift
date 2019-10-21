@@ -57,7 +57,8 @@ class ArticleCatalogViewController: UBaseViewController {
             return
         }
         ApiProvider.request(.getMagazineCatalog(magazineguid: m.MagazineGuid!, year: m.Year, issue: m.Issue), model: [magazinCatalogModel].self) { (res) in
-            self.catalogModels = res!
+            guard let r = res else { return }
+            self.catalogModels = r
             self.collectionView.mj_header.endRefreshing()
             self.collectionView.reloadData()
         }

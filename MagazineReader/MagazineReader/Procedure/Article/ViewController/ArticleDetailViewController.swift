@@ -51,9 +51,19 @@ class ArticleDetailViewController: UBaseViewController {
         return h
     }()
     
+    lazy var customNavBar: ArticleCustomNavBar = {
+        let v = ArticleCustomNavBar()
+        v.title = self.model?.MagazineName
+        v.backAct = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        return v
+    }()
+    
     var titles = ["目录", "往期"] // 目录 详情 简介 cell 两种展示模式
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
-    var tableHeaderViewHeight: Int = Int(225*sizeScale)
+//    var tableHeaderViewHeight: Int = Int(225*sizeScale)
+    var tableHeaderViewHeight: Int = Int(350*sizeScale)
     var headerInSectionHeight: Int = 50
     
     override func viewDidLoad() {
@@ -62,17 +72,33 @@ class ArticleDetailViewController: UBaseViewController {
         title = self.model?.MagazineName
         self.navigationController?.navigationBar.isTranslucent = false
         
-        view.addSubview(self.pagingView)
-        categoryView.contentScrollView = pagingView.listContainerView.collectionView
-        //扣边返回处理，下面的代码要加上
-        pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
-        pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        configUI()
         
+        // 设置收藏按钮
         if let islast = self.isLastIssue {
             if islast {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
+//                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
+//                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
             }
+        }
+    }
+    
+    override func configUI() {
+         view.addSubview(self.pagingView)
+         categoryView.contentScrollView = pagingView.listContainerView.collectionView
+         //扣边返回处理，下面的代码要加上
+         pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+         pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+         
+         let naviHeight = UIApplication.shared.keyWindow!.jx_navigationHeight()
+         //导航栏隐藏就是设置pinSectionHeaderVerticalOffset属性即可，数值越大越往下沉
+         pagingView.pinSectionHeaderVerticalOffset = Int(naviHeight)
+        
+        view.addSubview(customNavBar)
+        customNavBar.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(naviHeight)
         }
     }
     
@@ -83,12 +109,18 @@ class ArticleDetailViewController: UBaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView.frame = self.view.bounds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func addFavourite() {
@@ -133,6 +165,13 @@ extension ArticleDetailViewController: JXCategoryViewDelegate {
          self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
          }
          */
+    }
+    
+    func mainTableViewDidScroll(_ scrollView: UIScrollView) {
+        let thresholdDistance: CGFloat = 100
+        var percent = scrollView.contentOffset.y/thresholdDistance
+        percent = max(0, min(1, percent))
+        customNavBar.alpha = percent
     }
 }
 

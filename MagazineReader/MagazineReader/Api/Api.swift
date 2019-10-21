@@ -26,7 +26,7 @@ let LoadingPlugin = NetworkActivityPlugin { (type, target) in
 let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<MyService>.RequestResultClosure) -> Void in
     
     if var urlRequest = try? endpoint.urlRequest() {
-        urlRequest.timeoutInterval = 15
+        urlRequest.timeoutInterval = 8
         closure(.success(urlRequest))
     } else {
         closure(.failure(MoyaError.requestMapping(endpoint.url)))
