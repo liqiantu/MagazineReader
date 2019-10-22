@@ -18,37 +18,29 @@ class FavouriteCollectionViewCell: UBaseCollectionViewCell {
     
     private lazy var releaseDateLb: UILabel = {
         let lb = UILabel.init()
-        lb.font = UIFont.systemFont(ofSize: 13)
+        lb.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
         return lb
-    }()
-    
-    private lazy var magazinNameLb: UILabel = {
-       let lb = UILabel.init()
-        lb.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
-       return lb
     }()
     
     override func configUI() {
         addSubview(coverView)
         addSubview(releaseDateLb)
-        addSubview(magazinNameLb)
-        
-        contentView.backgroundColor = .red
         
         coverView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(5*sizeScale)
-            make.size.equalTo(CGSize.init(width: 77*sizeScale, height: 101*sizeScale))
+            make.top.equalToSuperview().offset(5)
+            make.edges.equalToSuperview().inset(UIEdgeInsets.init(top: 5, left: 5, bottom: 25, right: 5))
         }
         
         releaseDateLb.snp.makeConstraints { (make) in
             make.left.equalTo(coverView.snp.left)
             make.top.equalTo(coverView.snp.bottom).offset(5*sizeScale)
         }
-        
-        magazinNameLb.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.top.equalTo(releaseDateLb.snp.bottom).offset(3*sizeScale)
+    }
+    
+    var model: favouriteMagzineModel? {
+        didSet {
+            coverView.kf.setImage(with: URL.init(string: model!.CoverImage))
+            releaseDateLb.text = "更新至\(model!.Year)年\(model!.Issue)期"
 
         }
     }

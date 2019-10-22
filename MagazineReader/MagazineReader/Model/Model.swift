@@ -102,9 +102,10 @@ struct articleContentImagesModel {
 
 // ------------------------- cacheModel -------------------------
 
-struct favCacheModel {
-    var ArticleID: String = ""
+struct favouriteMagzineModel {
+    var magazineguid: String = ""
     var MagazineName: String = ""
     var Year: String = ""
     var Issue: String = ""
+    var CoverImage: String = ""
 }

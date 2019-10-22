@@ -12,6 +12,22 @@ typealias backClosures = () -> Void
 
 class ArticleCustomNavBar: UIView {
     var backAct: backClosures?
+    var leftAct: backClosures?
+    
+    var isShowLeft = false {
+        didSet {
+            let topSafeMargin = UIApplication.shared.keyWindow!.jx_layoutInsets().top
+            if isShowLeft {
+                addSubview(rightButton)
+                rightButton.snp.makeConstraints { (make) in
+                    make.right.equalTo(self.snp.right).offset(-12)
+                    make.top.equalTo(topSafeMargin)
+                    make.size.equalTo(CGSize.init(width: 90,height: 44))
+                }
+            }
+        }
+    }
+    
     var title: String? {
         didSet {
             naviTitleLabel.text = title
@@ -27,7 +43,14 @@ class ArticleCustomNavBar: UIView {
     private lazy var backButton: UIButton = {
         let back = UIButton(type: .system)
         back.setTitle("返回", for: .normal)
-        back.addTarget(self, action: #selector(naviBack), for: .touchUpInside)
+        back.addTarget(self, action: #selector(naviBackAction), for: .touchUpInside)
+        return back
+    }()
+    
+    private lazy var rightButton: UIButton = {
+        let back = UIButton(type: .system)
+        back.setTitle("添加至书架", for: .normal)
+        back.addTarget(self, action: #selector(leftAction), for: .touchUpInside)
         return back
     }()
     
@@ -58,8 +81,15 @@ class ArticleCustomNavBar: UIView {
         }
     }
     
-    @objc func naviBack() {
+    @objc func naviBackAction() {
         guard let act =  backAct else {
+            return
+        }
+        act()
+    }
+    
+    @objc func leftAction() {
+        guard let act = leftAct else {
             return
         }
         act()

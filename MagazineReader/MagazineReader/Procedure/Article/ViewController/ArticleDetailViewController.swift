@@ -12,7 +12,7 @@ import JXCategoryView
 
 class ArticleDetailViewController: UBaseViewController {
     public var model: magazinDescrModel?
-    public var isLastIssue: Bool?
+    public var isLastIssue = false
     
     private lazy var categoryView: JXCategoryTitleView = {
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: CGFloat(headerInSectionHeight)))
@@ -57,12 +57,24 @@ class ArticleDetailViewController: UBaseViewController {
         v.backAct = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        if isLastIssue {
+            v.isShowLeft = true
+            v.leftAct = {
+                guard let m = self.model else { return }
+                let myModel = favouriteMagzineModel.init(magazineguid: m.MagazineGuid!, MagazineName: m.MagazineName!, Year: m.Year, Issue: m.Issue, CoverImage: m.CoverImages![3])
+                FMDBToolSingleton.sharedInstance.addFavouriteMagzine(model: myModel) { (res) in
+                    
+                }
+            }
+        }
+        
         return v
     }()
     
     var titles = ["目录", "往期"] // 目录 详情 简介 cell 两种展示模式
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
-//    var tableHeaderViewHeight: Int = Int(225*sizeScale)
+    //    var tableHeaderViewHeight: Int = Int(225*sizeScale)
     var tableHeaderViewHeight: Int = Int(350*sizeScale)
     var headerInSectionHeight: Int = 50
     
@@ -75,24 +87,24 @@ class ArticleDetailViewController: UBaseViewController {
         configUI()
         
         // 设置收藏按钮
-        if let islast = self.isLastIssue {
-            if islast {
-//                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
-//                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
-            }
-        }
+//        if let islast = self.isLastIssue {
+//            if islast {
+////                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
+//                //                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
+//            }
+//        }
     }
     
     override func configUI() {
-         view.addSubview(self.pagingView)
-         categoryView.contentScrollView = pagingView.listContainerView.collectionView
-         //扣边返回处理，下面的代码要加上
-         pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
-         pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
-         
-         let naviHeight = UIApplication.shared.keyWindow!.jx_navigationHeight()
-         //导航栏隐藏就是设置pinSectionHeaderVerticalOffset属性即可，数值越大越往下沉
-         pagingView.pinSectionHeaderVerticalOffset = Int(naviHeight)
+        view.addSubview(self.pagingView)
+        categoryView.contentScrollView = pagingView.listContainerView.collectionView
+        //扣边返回处理，下面的代码要加上
+        pagingView.listContainerView.collectionView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        
+        let naviHeight = UIApplication.shared.keyWindow!.jx_navigationHeight()
+        //导航栏隐藏就是设置pinSectionHeaderVerticalOffset属性即可，数值越大越往下沉
+        pagingView.pinSectionHeaderVerticalOffset = Int(naviHeight)
         
         view.addSubview(customNavBar)
         customNavBar.snp.makeConstraints { (make) in
@@ -123,23 +135,10 @@ class ArticleDetailViewController: UBaseViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    @objc func addFavourite() {
-        
-    }
-    
-    @objc func removeFavourite() {
-        
-    }
-    
-    //    func loadData() {
-    //        guard let m = self.model else {
-    //            return
-    //        }
-    //
-    //        ApiLoadingProvider.request(.getMagazineIssue(magazineguid: m.MagazineGuid!, year: m.Year, issue: m.Issue), model: magazineIssueModel.self) { (res) in
-    //            self.magazineIssueModel = res
-    //        }
-    //    }
+//    @objc func addFavourite() {
+//    }
+//    @objc func removeFavourite() {
+//    }
 }
 
 extension ArticleDetailViewController: JXCategoryViewDelegate {

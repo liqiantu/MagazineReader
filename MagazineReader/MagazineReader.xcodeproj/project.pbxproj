@@ -25,6 +25,7 @@
 		303A15B5235950E400979962 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A15B4235950E400979962 /* BaseWebView.swift */; };
 		303AAED3235D649100616757 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AAED2235D649100616757 /* AppConfig.swift */; };
 		303C6851235B642700D9E48C /* AritclePage in Resources */ = {isa = PBXBuildFile; fileRef = 303C6850235B642700D9E48C /* AritclePage */; };
+		308A0F07235E964E002213F6 /* FMDBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A0F06235E964E002213F6 /* FMDBTool.swift */; };
 		3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
 		3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */; };
@@ -78,6 +79,7 @@
 		303A15B4235950E400979962 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		303AAED2235D649100616757 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		303C6850235B642700D9E48C /* AritclePage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AritclePage; sourceTree = "<group>"; };
+		308A0F06235E964E002213F6 /* FMDBTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBTool.swift; sourceTree = "<group>"; };
 		3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentViewController.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
 		3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		30D6585823504756008516A6 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
 		30D826DA23534634000CFFFD /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		30D826DC235361A3000CFFFD /* CatCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
-		30DE1A04234A616C000B4E63 /* MagazineReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagazineReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DE1A04234A616C000B4E63 /* 看杂志.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "看杂志.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DE1A07234A616D000B4E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30DE1A0B234A616D000B4E63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30DE1A10234A616E000B4E63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +204,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		308A0F05235E9599002213F6 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				30C161AD234DAB8D00BC17F5 /* Global.swift */,
+				303AAED2235D649100616757 /* AppConfig.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		30C16195234DAA0700BC17F5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +241,11 @@
 		30C161AB234DAA6400BC17F5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				308A0F05235E9599002213F6 /* Class */,
 				303C6850235B642700D9E48C /* AritclePage */,
-				30C161AD234DAB8D00BC17F5 /* Global.swift */,
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
 				30DE1A15234A616E000B4E63 /* Info.plist */,
-				303AAED2235D649100616757 /* AppConfig.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -263,8 +273,6 @@
 				30D826D8235345D9000CFFFD /* Favourite */,
 				302D8D51234F1E670001D856 /* Cate */,
 				302D8D52234F1E710001D856 /* Mine */,
-				30DE1A07234A616D000B4E63 /* AppDelegate.swift */,
-				30DE1A0B234A616D000B4E63 /* ViewController.swift */,
 			);
 			path = Procedure;
 			sourceTree = "<group>";
@@ -351,7 +359,7 @@
 		30DE1A05234A616C000B4E63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30DE1A04234A616C000B4E63 /* MagazineReader.app */,
+				30DE1A04234A616C000B4E63 /* 看杂志.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +367,8 @@
 		30DE1A06234A616D000B4E63 /* MagazineReader */ = {
 			isa = PBXGroup;
 			children = (
+				30DE1A07234A616D000B4E63 /* AppDelegate.swift */,
+				30DE1A0B234A616D000B4E63 /* ViewController.swift */,
 				30F02D5D235C14AD009E9942 /* Tool */,
 				30C161B0234DABBE00BC17F5 /* Procedure */,
 				30C161B1234DABE600BC17F5 /* Base */,
@@ -374,6 +384,7 @@
 		30F02D5D235C14AD009E9942 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				308A0F06235E964E002213F6 /* FMDBTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -414,7 +425,7 @@
 			);
 			name = MagazineReader;
 			productName = MagazineReader;
-			productReference = 30DE1A04234A616C000B4E63 /* MagazineReader.app */;
+			productReference = 30DE1A04234A616C000B4E63 /* 看杂志.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -551,6 +562,7 @@
 				303A15A8235717E100979962 /* ArticleCatalogHeaderView.swift in Sources */,
 				30C161C2234DABE600BC17F5 /* UBaseViewController.swift in Sources */,
 				30C161C3234DABE600BC17F5 /* UTabBarController.swift in Sources */,
+				308A0F07235E964E002213F6 /* FMDBTool.swift in Sources */,
 				30C161A6234DAA0800BC17F5 /* StringExtension.swift in Sources */,
 				303A15AC235803F200979962 /* ArticleCatalogViewController.swift in Sources */,
 				30C1619F234DAA0800BC17F5 /* ArrayExtensions.swift in Sources */,
@@ -700,7 +712,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lqt.MagazineReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "看杂志";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -720,7 +732,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lqt.MagazineReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "看杂志";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

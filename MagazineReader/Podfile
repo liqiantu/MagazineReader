@@ -20,6 +20,7 @@ target 'MagazineReader' do
   pod 'JXPagingView/Paging'
   pod 'JXCategoryView'
   pod 'YYCache'
+  pod 'FMDB'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 

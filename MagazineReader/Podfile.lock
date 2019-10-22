@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.9.0)
   - EmptyDataSet-Swift (5.0.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - HandyJSON (5.0.0)
   - IQKeyboardManagerSwift (6.4.2)
   - JXCategoryView (1.5.2)
@@ -26,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - EmptyDataSet-Swift
+  - FMDB
   - HandyJSON
   - IQKeyboardManagerSwift
   - JXCategoryView
@@ -44,6 +48,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - EmptyDataSet-Swift
+    - FMDB
     - HandyJSON
     - IQKeyboardManagerSwift
     - JXCategoryView
@@ -62,6 +67,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
@@ -77,6 +83,6 @@ SPEC CHECKSUMS:
   WoodPeckeriOS: 3802768524692cf3ff7c3a1973b4add455597861
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 6f1e7b18570904cd1fedab8a27ddd2a25d06ed64
+PODFILE CHECKSUM: 9d6e2c44faaa565b30db0d22f90559c8117bedaf
 
 COCOAPODS: 1.8.3
