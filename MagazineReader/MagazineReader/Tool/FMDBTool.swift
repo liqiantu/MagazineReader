@@ -14,7 +14,7 @@ typealias executeResualtClosures = (_ res: Bool) -> Void
 class FMDBToolSingleton {
     static let sharedInstance = FMDBToolSingleton()
     
-    var dataBase: FMDatabase? {
+    var db: FMDatabase? {
         get {
             let docPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
             let dbPath = docPath + "/db.db"
@@ -29,7 +29,10 @@ class FMDBToolSingleton {
         }
     }
     
+    var dataBase: FMDatabase?
+    
     func configDB(){
+        dataBase = db
         guard let db = dataBase else {
             return
         }
@@ -66,9 +69,9 @@ class FMDBToolSingleton {
         executeResualt(r)
     }
     
-    func removeFavouriteMagzine(model m: favouriteMagzineModel, executeResualt: executeResualtClosures) {
+    func removeFavouriteMagzine(magazineguid m: String, executeResualt: executeResualtClosures) {
         let sql = "delete from 't_favouriteMagzin' where magazineguid = ?"
-        let isSucc = dataBase?.executeUpdate(sql, withArgumentsIn: [m.magazineguid])
+        let isSucc = dataBase?.executeUpdate(sql, withArgumentsIn: [m])
         guard let r = isSucc else {
             return
         }

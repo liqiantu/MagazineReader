@@ -22,7 +22,8 @@ class CateViewController: UBaseViewController, UICollectionViewDelegate, UIColle
         cl.sectionHeadersPinToVisibleBounds = true
         cl.minimumLineSpacing = 5
         cl.minimumInteritemSpacing = 5
-        cl.itemSize = CGSize.init(width: screenWidth / 3 - 10, height: 120*sizeScale)
+        cl.itemSize = CGSize.init(width: screenWidth / 3 - 10, height: 130*sizeScale)
+        cl.sectionInset = UIEdgeInsets.init(top: 10, left: 0, bottom: 5, right: 0)
         let cv = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: cl)
         cv.backgroundColor = .white
         cv.alwaysBounceVertical = true

@@ -12,6 +12,7 @@ class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
     private lazy var titleLb: UILabel = {
         let v = UILabel.init()
         v.textColor = .black
+        v.lineBreakMode = .byTruncatingTail
         return v
     }()
     
@@ -28,12 +29,13 @@ class ArticleCatalogViewCellCollectionViewCell: UBaseCollectionViewCell {
         contentView.addSubview(authorLb)
         
         titleLb.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().offset(10*sizeScale)
             make.top.equalToSuperview().offset(5*sizeScale)
+            make.left.right.equalToSuperview().offset(10*sizeScale)
         }
         authorLb.snp.makeConstraints { (make) in
             make.top.equalTo(titleLb.snp.bottom).offset(5*sizeScale)
             make.left.equalTo(self.titleLb)
+            make.bottom.equalToSuperview().offset(0)
         }
     }
     

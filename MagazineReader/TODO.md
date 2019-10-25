@@ -10,7 +10,5 @@ http://strawberrycode.com/blog/how-to-create-a-section-background-in-a-uicollect
 5.分类请求串行 https://www.jianshu.com/p/09d1ebcbd2a0     ok
 
 UI
-葫芦时刻
-IPASearch
 
 上下篇文章类似订单详情上拉滑动

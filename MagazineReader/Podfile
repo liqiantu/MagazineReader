@@ -19,8 +19,10 @@ target 'MagazineReader' do
   pod 'EmptyDataSet-Swift'
   pod 'JXPagingView/Paging'
   pod 'JXCategoryView'
-  pod 'YYCache'
   pod 'FMDB'
+  pod 'ZLPhotoBrowser'
+  pod 'RxSwift', '~> 5.0'
+  pod 'RxCocoa', '~> 5.0'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 

@@ -16,7 +16,7 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
     
     private lazy var titleLb: UILabel = {
         let lb = UILabel.init()
-        lb.font = UIFont.systemFont(ofSize: 16)
+        lb.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
         lb.text = "文学文摘"
         return lb
     }()
@@ -28,19 +28,16 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         btn.addTarget(self, action: #selector(moreAction), for: UIControl.Event.touchUpInside)
         return btn
     }()
-    
-    private lazy var bottemLine: UIView = {
-        let v = UIView()
-        v.backgroundColor = UIColor.lightGray
-        return v
-    }()
 
     override func configUI() {
         backgroundColor = .white
+        layer.shadowOffset = CGSize.init(width: 0, height: 2)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.6
+        layer.masksToBounds = false
         
         addSubview(titleLb)
         addSubview(moreBtn)
-        addSubview(bottemLine)
         
         titleLb.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -50,12 +47,6 @@ class CatCollectionViewSectionHeader: UBaseCollectionReusableView {
         moreBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.right.equalTo(self.snp.right).offset(-15*sizeScale)
-        }
-        
-        bottemLine.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
-            make.height.equalTo(1.5*sizeScale)
-            make.top.equalTo(moreBtn.snp.bottom).offset(2*sizeScale)
         }
     }
     

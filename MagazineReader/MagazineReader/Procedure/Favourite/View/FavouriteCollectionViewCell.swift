@@ -13,6 +13,10 @@ class FavouriteCollectionViewCell: UBaseCollectionViewCell {
     private lazy var coverView: UIImageView = {
         let imgv = UIImageView.init()
         imgv.contentMode = .scaleAspectFit
+        imgv.layer.shadowOffset = CGSize.init(width: 0, height: 2)
+        imgv.layer.shadowColor = UIColor.black.cgColor
+        imgv.layer.shadowOpacity = 0.8
+        imgv.layer.masksToBounds = false
         return imgv
     }()
     
@@ -23,6 +27,10 @@ class FavouriteCollectionViewCell: UBaseCollectionViewCell {
     }()
     
     override func configUI() {
+        // https://www.jianshu.com/p/590ea786c74f
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        
         addSubview(coverView)
         addSubview(releaseDateLb)
         
@@ -32,7 +40,7 @@ class FavouriteCollectionViewCell: UBaseCollectionViewCell {
         }
         
         releaseDateLb.snp.makeConstraints { (make) in
-            make.left.equalTo(coverView.snp.left)
+            make.left.equalTo(coverView.snp.left).offset(2)
             make.top.equalTo(coverView.snp.bottom).offset(5*sizeScale)
         }
     }

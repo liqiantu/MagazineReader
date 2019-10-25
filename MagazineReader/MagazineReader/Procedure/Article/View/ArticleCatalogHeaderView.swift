@@ -63,8 +63,8 @@ class ArticleCatalogHeaderView: UIView {
         backImageView.addSubview(coverView)
         coverView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(5*sizeScale)
-            make.size.equalTo(CGSize.init(width: screenWidth, height: 300*sizeScale))
+            make.top.equalToSuperview().offset(35*sizeScale)
+            make.size.equalTo(CGSize.init(width: screenWidth, height: 285*sizeScale))
         }
         
         backImageView.addSubview(releaseDateLb)

@@ -59,7 +59,6 @@ class ArticleCustomNavBar: UIView {
         config()
     }
     
-    
     func config() {
         backgroundColor = .white
         alpha = 0

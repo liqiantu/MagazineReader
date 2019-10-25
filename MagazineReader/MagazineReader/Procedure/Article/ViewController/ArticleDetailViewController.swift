@@ -80,19 +80,10 @@ class ArticleDetailViewController: UBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = self.model?.MagazineName
         self.navigationController?.navigationBar.isTranslucent = false
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         configUI()
-        
-        // 设置收藏按钮
-//        if let islast = self.isLastIssue {
-//            if islast {
-////                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "添加收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFavourite))
-//                //                self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消收藏",  style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeFavourite))
-//            }
-//        }
     }
     
     override func configUI() {
@@ -222,4 +213,8 @@ extension ArticleDetailViewController: JXPagingMainTableViewGestureDelegate {
         }
         return gestureRecognizer.isKind(of: UIPanGestureRecognizer.classForCoder()) && otherGestureRecognizer.isKind(of: UIPanGestureRecognizer.classForCoder())
     }
+}
+
+extension ArticleDetailViewController: UIGestureRecognizerDelegate {
+    
 }
