@@ -73,7 +73,6 @@
 		303A15A9235800A900979962 /* ArticlePastIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePastIssueViewController.swift; sourceTree = "<group>"; };
 		303A15AB235803F200979962 /* ArticleCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogViewController.swift; sourceTree = "<group>"; };
 		303A15AD235831CF00979962 /* ArticleCatalogViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		303A15AF23583F1C00979962 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		303A15B02358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
 		303A15B2235872DA00979962 /* ArticleCatalogCollectionReusableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCatalogCollectionReusableFooterView.swift; sourceTree = "<group>"; };
 		303A15B4235950E400979962 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
@@ -348,7 +347,6 @@
 		30DE19FB234A616C000B4E63 = {
 			isa = PBXGroup;
 			children = (
-				303A15AF23583F1C00979962 /* TODO.md */,
 				30DE1A06234A616D000B4E63 /* MagazineReader */,
 				30DE1A05234A616C000B4E63 /* Products */,
 				93DB9DE6C9A8B5942DF87411 /* Pods */,
