@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import URLNavigator
 
 class UTabBarController: UITabBarController {
+    private let navigator: NavigatorType
+
+    init(navigator: NavigatorType) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +30,7 @@ class UTabBarController: UITabBarController {
         addChildViewController(favVC, title: "书架", image: "tab_book", selectedImage: "tab_book_S")
         
         let cateVC = CateViewController()
+        cateVC.navigator = navigator
         addChildViewController(cateVC, title: "分类", image: "tab_class", selectedImage: "tab_class_S")
         
         let mineVC = MineViewController()

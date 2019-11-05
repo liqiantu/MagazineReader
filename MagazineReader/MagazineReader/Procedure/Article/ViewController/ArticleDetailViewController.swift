@@ -72,7 +72,7 @@ class ArticleDetailViewController: UBaseViewController {
         return v
     }()
     
-    var titles = ["目录", "往期"] // 目录 详情 简介 cell 两种展示模式
+    var titles = ["目录", NSLocalizedString("往期", comment: "")] // 目录 详情 简介 cell 两种展示模式
     weak var nestContentScrollView: UIScrollView?    //嵌套demo使用
     //    var tableHeaderViewHeight: Int = Int(225*sizeScale)
     var tableHeaderViewHeight: Int = Int(350*sizeScale)
@@ -125,11 +125,6 @@ class ArticleDetailViewController: UBaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
-//    @objc func addFavourite() {
-//    }
-//    @objc func removeFavourite() {
-//    }
 }
 
 extension ArticleDetailViewController: JXCategoryViewDelegate {

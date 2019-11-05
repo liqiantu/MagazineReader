@@ -26,6 +26,7 @@
 		303AAED3235D649100616757 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AAED2235D649100616757 /* AppConfig.swift */; };
 		303C6851235B642700D9E48C /* AritclePage in Resources */ = {isa = PBXBuildFile; fileRef = 303C6850235B642700D9E48C /* AritclePage */; };
 		308A0F07235E964E002213F6 /* FMDBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A0F06235E964E002213F6 /* FMDBTool.swift */; };
+		308A0F5923710DEC002213F6 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A0F5823710DEC002213F6 /* NavigationMap.swift */; };
 		3094690323589F3A00BF5CFA /* ArticleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */; };
 		3099A39923556A3F0055DB66 /* CatCollectionViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */; };
 		3099A39B2355CC7E0055DB66 /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */; };
@@ -79,6 +80,7 @@
 		303AAED2235D649100616757 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		303C6850235B642700D9E48C /* AritclePage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AritclePage; sourceTree = "<group>"; };
 		308A0F06235E964E002213F6 /* FMDBTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBTool.swift; sourceTree = "<group>"; };
+		308A0F5823710DEC002213F6 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		3094690223589F3A00BF5CFA /* ArticleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentViewController.swift; sourceTree = "<group>"; };
 		3099A39823556A3F0055DB66 /* CatCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewSectionFooter.swift; sourceTree = "<group>"; };
 		3099A39A2355CC7E0055DB66 /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,14 @@
 				303AAED2235D649100616757 /* AppConfig.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		308A0F5723710DD4002213F6 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				308A0F5823710DEC002213F6 /* NavigationMap.swift */,
+			);
+			path = Navigator;
 			sourceTree = "<group>";
 		};
 		30C16195234DAA0700BC17F5 /* Extension */ = {
@@ -365,6 +375,7 @@
 		30DE1A06234A616D000B4E63 /* MagazineReader */ = {
 			isa = PBXGroup;
 			children = (
+				308A0F5723710DD4002213F6 /* Navigator */,
 				30DE1A07234A616D000B4E63 /* AppDelegate.swift */,
 				30DE1A0B234A616D000B4E63 /* ViewController.swift */,
 				30F02D5D235C14AD009E9942 /* Tool */,
@@ -531,6 +542,7 @@
 				30D826DB23534634000CFFFD /* FavouriteViewController.swift in Sources */,
 				303A15B12358564200979962 /* ArticleCatalogCollectionReusableHeaderView.swift in Sources */,
 				30C161A1234DAA0800BC17F5 /* UIViewExtension.swift in Sources */,
+				308A0F5923710DEC002213F6 /* NavigationMap.swift in Sources */,
 				30DE1A0C234A616D000B4E63 /* ViewController.swift in Sources */,
 				30C161A7234DAA0800BC17F5 /* DictionaryExtension.swift in Sources */,
 				30DE1A08234A616D000B4E63 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import MJRefresh
+import URLNavigator
 
 fileprivate class collectionModel {
     var headerModel: categoryModel?
@@ -16,6 +17,7 @@ fileprivate class collectionModel {
 
 class CateViewController: UBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private var models = [collectionModel]()
+    var navigator: NavigatorType!
 
     private lazy var collectionView: UICollectionView = {
         let cl = UICollectionViewFlowLayout.init()
@@ -129,9 +131,11 @@ extension CateViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ArticleDetailViewController()
-        vc.model = models[indexPath.section].bodyModel![indexPath.row]
-        vc.isLastIssue = true
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = ArticleDetailViewController()
+//        vc.model = models[indexPath.section].bodyModel![indexPath.row]
+//        vc.isLastIssue = true
+//        navigationController?.pushViewController(vc, animated: true)
+
+        navigator.pushURL("app://article/Detail/cate", context: ["model": models[indexPath.section].bodyModel![indexPath.row]], from: navigationController, animated: true)
     }
 }

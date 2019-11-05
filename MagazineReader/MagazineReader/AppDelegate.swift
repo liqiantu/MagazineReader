@@ -9,11 +9,14 @@
 import UIKit
 import Alamofire
 import IQKeyboardManagerSwift
+import URLNavigator
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var navigator: NavigatorType!
     
     lazy var reachability: NetworkReachabilityManager? = {
         return NetworkReachabilityManager(host: "http://www.baidu.com")
@@ -25,10 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configBase()
         FMDBToolSingleton.sharedInstance.configDB()
         
+        self.navigator = Navigator()
+        NavigationMap.initialize(navigator: self.navigator!)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
-        window?.rootViewController = UTabBarController()
+        window?.rootViewController = UTabBarController(navigator: self.navigator)
         
         return true
     }

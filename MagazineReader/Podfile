@@ -23,6 +23,7 @@ target 'MagazineReader' do
   pod 'ZLPhotoBrowser'
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
+  pod 'URLNavigator'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 
