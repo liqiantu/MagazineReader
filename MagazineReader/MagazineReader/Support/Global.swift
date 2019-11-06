@@ -12,6 +12,27 @@ import Kingfisher
 import SnapKit
 import MJRefresh
 
+//MARK: SnapKit
+extension ConstraintView {
+    
+    var usnp: ConstraintBasicAttributesDSL {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.snp
+        } else {
+            return self.snp
+        }
+    }
+}
+
+
+//MARK: print
+func uLog<T>(_ message: T, file: String = #file, function: String = #function, lineNumber: Int = #line) {
+    #if DEBUG
+        let fileName = (file as NSString).lastPathComponent
+        print("[\(fileName):funciton:\(function):line:\(lineNumber)]- \(message)")
+    #endif
+}
+
 //MRAK: 应用默认颜色
 extension UIColor {
     class var background: UIColor {
@@ -72,14 +93,6 @@ private  func _topVC(_ vc: UIViewController?) -> UIViewController? {
     }
 }
 
-//MARK: print
-func uLog<T>(_ message: T, file: String = #file, function: String = #function, lineNumber: Int = #line) {
-    #if DEBUG
-        let fileName = (file as NSString).lastPathComponent
-        print("[\(fileName):funciton:\(function):line:\(lineNumber)]- \(message)")
-    #endif
-}
-
 //MARK: Kingfisher
 //extension Kingfisher where Base: ImageView {
 //    @discardableResult
@@ -100,18 +113,6 @@ func uLog<T>(_ message: T, file: String = #file, function: String = #function, l
 //        
 //    }
 //}
-
-//MARK: SnapKit
-extension ConstraintView {
-    
-    var usnp: ConstraintBasicAttributesDSL {
-        if #available(iOS 11.0, *) {
-            return self.safeAreaLayoutGuide.snp
-        } else {
-            return self.snp
-        }
-    }
-}
 
 extension UICollectionView {
     

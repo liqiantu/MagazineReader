@@ -205,15 +205,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		308A0F05235E9599002213F6 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				30C161AD234DAB8D00BC17F5 /* Global.swift */,
-				303AAED2235D649100616757 /* AppConfig.swift */,
-			);
-			path = Class;
-			sourceTree = "<group>";
-		};
 		308A0F5723710DD4002213F6 /* Navigator */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +241,8 @@
 		30C161AB234DAA6400BC17F5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				308A0F05235E9599002213F6 /* Class */,
+				30C161AD234DAB8D00BC17F5 /* Global.swift */,
+				303AAED2235D649100616757 /* AppConfig.swift */,
 				303C6850235B642700D9E48C /* AritclePage */,
 				30DE1A10234A616E000B4E63 /* Assets.xcassets */,
 				30DE1A12234A616E000B4E63 /* LaunchScreen.storyboard */,
